@@ -1,6 +1,23 @@
 [gd_scene format=3 uid="uid://hubowr5basua"]
 
 [ext_resource type="Texture2D" uid="uid://p3qdi7qf22xt" path="res://assets/generated/packed_textures/noise.png" id="1_6r1bv"]
+[ext_resource type="Shader" uid="uid://coxo1b8udigwr" path="res://assets/shaders/ScreenEffectsMainShader.gdshader" id="2_2xycp"]
+[ext_resource type="Script" uid="uid://bak1yx3mfciqb" path="res://src/utils/vignette_center_mover.gd" id="3_wf1mx"]
+
+[sub_resource type="Gradient" id="Gradient_2fgvr"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yf5fn"]
+gradient = SubResource("Gradient_2fgvr")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("2_2xycp")
+shader_parameter/custom_center = Vector2(0, 0)
+shader_parameter/vignette_gradient = SubResource("GradientTexture2D_yf5fn")
+shader_parameter/circle_or_ellipse = 0.0
+shader_parameter/vignette_strength = 2.6450001256375
+shader_parameter/vignette_spread = 1.914000043415
 
 [node name="Root" type="Node2D" unique_id=953526698]
 
@@ -15,3 +32,28 @@ texture = ExtResource("1_6r1bv")
 [node name="Test2" type="Sprite2D" parent="." unique_id=865100256]
 position = Vector2(142, 196)
 texture = ExtResource("1_6r1bv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=59757753]
+
+[node name="temp node for shaders" type="Control" parent="CanvasLayer" unique_id=2021361698]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Screen Shader Applier" type="ColorRect" parent="CanvasLayer/temp node for shaders" unique_id=1660460467]
+material = SubResource("ShaderMaterial_g4v7s")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vignette Center Mover" type="Node2D" parent="CanvasLayer" unique_id=1223525903 node_paths=PackedStringArray("color_rect")]
+script = ExtResource("3_wf1mx")
+color_rect = NodePath("../temp node for shaders/Screen Shader Applier")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=209111700]
