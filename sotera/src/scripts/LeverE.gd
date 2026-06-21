@@ -36,7 +36,7 @@ func _apply_idle_motion(delta : float) -> void:
 	
 	#Using Sin/Cos for effects
 	var motion_scale = Vector2(sin(motion_time) * 0.05, cos(motion_time) * 0.05)
-	var motion_offset =Vector2(sin(motion_time * 0.08) * 3.0, cos(motion_time * 0.8) * 3.0)
+	var motion_offset =Vector2(sin(motion_time * 0.08) * 3.0, cos(motion_time * 0.08) * 3.0)
 	
 	scale = base_scale + motion_scale
 	offset = base_offset + motion_offset
