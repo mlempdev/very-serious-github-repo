@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cdkou7ey7g41c"]
+
+[ext_resource type="Script" path="res://Scripts/character_movement.gd" id="1_0qobf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s2pw8"]
+
+[node name="Character" type="Node2D" unique_id=356780082]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=198511028]
+scale = Vector2(3, 3)
+script = ExtResource("1_0qobf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1418230728]
+shape = SubResource("CapsuleShape2D_s2pw8")
+
+[node name="ColorRect" type="ColorRect" parent="CharacterBody2D" unique_id=1784560403]
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 10.0
+offset_bottom = 15.0
+metadata/_edit_use_anchors_ = true

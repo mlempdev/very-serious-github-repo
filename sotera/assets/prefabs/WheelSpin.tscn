@@ -27,3 +27,5 @@ offset_top = 65.0
 offset_right = 24.0
 offset_bottom = 88.0
 horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1153167868]
