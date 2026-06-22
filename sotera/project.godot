@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-TransitionScene="*uid://be2iih16ss0nx"
+Events="*uid://dnb2gar5rl7x3"
 
 [display]
 

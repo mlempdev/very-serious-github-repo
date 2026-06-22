@@ -50,6 +50,7 @@ step = 0.001
 value = 1.0
 
 [node name="User Interface" parent="." unique_id=719073563 instance=ExtResource("3_0ntwq")]
+unique_name_in_owner = true
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0

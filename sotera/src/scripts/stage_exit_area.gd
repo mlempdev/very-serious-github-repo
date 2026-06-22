@@ -30,4 +30,4 @@ func _on_body_exited(body: Node2D):
 func _process(_delta):
 	#if requirements are met, change scene.
 	if player_in_area and Input.is_action_just_pressed("interact"):
-		get_tree().change_scene_to_file("res://assets/scenes/StandardMaze.tscn")
+		Events.change_level("res://assets/scenes/StandardMaze.tscn")
