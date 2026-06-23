@@ -2,6 +2,7 @@ extends Node2D
 
 enum WHEELSTATE {
 	SPINNING,
+	MOVING_TO_VALUE,
 	IDLE
 }
 
@@ -16,10 +17,12 @@ var max_time: float = 5.0;
 
 var speed_multiplier: float = 0.0;
 
-var items: Array[int] = [
-	5, 10, 15, 20, 25, 30
+var items: Array[String] = [
+	"maze", "bullet", "scary", "quiz", "story"
 ]
 var elapsed_spin_time = 0;
+var single_value_height_in_texture = 1.0 / items.size();
+var value_idx = 2;
 
 func _process(delta: float) -> void:
 	if elapsed_spin_time < spin_time:
@@ -36,13 +39,9 @@ func _process(delta: float) -> void:
 	else:
 		stop_spinning()
 
-	var single_value_height_in_texture = 1.0 / items.size();
-	var value_idx = (int(offset / single_value_height_in_texture) + (items.size()/2)) % items.size();
+	value_idx = (int((offset + 0.1) / single_value_height_in_texture) + floori(items.size() / 2)) % items.size();
 
 	$WheelTexture.material.set_shader_parameter("offset", offset);
-	$WheelTexture.material.set_shader_parameter("number_of_values", items.size());
-	$WheelTexture.material.set_shader_parameter("current_value", value_idx);
-
 	$WheelValue.text = str(items[value_idx])
 
 func _input(event):
@@ -55,11 +54,22 @@ func start_spinning():
 		spin_speed = RandUtils.randf_range(min_speed, max_speed)
 		spin_time = RandUtils.randf_range(min_time,max_time)
 		elapsed_spin_time = 0
+
 		$WheelSpinEffect.start_speedup()
 		$WheelSpinEffect2.start_speedup()
 
-func stop_spinning()->void:
+func stop_spinning() -> void:
 	if state == WHEELSTATE.SPINNING:
-		state = WHEELSTATE.IDLE
+		state = WHEELSTATE.MOVING_TO_VALUE
 		$WheelSpinEffect.start_slowdown()
 		$WheelSpinEffect2.start_slowdown()
+	elif state == WHEELSTATE.MOVING_TO_VALUE:
+		# Somehow, use this value to move the box to center
+		#offset = lerp(offset, single_value_height_in_texture * (value_idx), 0.9)
+
+		#print(offset, " ", value_idx)
+		#print(single_value_height_in_texture * value_idx)
+		print(items[value_idx])
+
+		#if abs(offset - single_value_height_in_texture * (value_idx)) <= 0.2:
+		state = WHEELSTATE.IDLE
