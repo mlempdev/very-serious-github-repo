@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" format=3 uid="uid://p4eyb2480adc"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://o74fth3w02gp" path="res://assets/animations/2d/jumpscare/Jumpsacre aniamtion.atlas" id="1_foxl2"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://dkk2ew2v625f2" path="res://assets/animations/2d/jumpscare/Jumpscare.skel" id="2_73s0o"]
+
+[resource]
+atlas_res = ExtResource("1_foxl2")
+skeleton_file_res = ExtResource("2_73s0o")

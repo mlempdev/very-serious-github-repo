@@ -1,0 +1,21 @@
+Jumpsacre aniamtion.png
+size:4007,1739
+filter:Linear,Linear
+pma:true
+JS1_HandL (1)
+bounds:2756,979,1249,758
+offsets:0,0,1260,759
+JS1_HandR (1)
+bounds:1984,456,1281,770
+offsets:0,11,1292,781
+rotate:90
+JS1_Head (1)
+bounds:2756,2,975,1080
+rotate:90
+JS2_Body
+bounds:2,122,1615,791
+offsets:0,0,1621,791
+rotate:90
+JS2_Head
+bounds:795,168,1187,1569
+offsets:0,1,1187,1576

@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://o74fth3w02gp"
+path="res://.godot/imported/Jumpsacre aniamtion.atlas-ea4b41288bae2112a57c98413a24e4be.spatlas"
+
+[deps]
+
+source_file="res://assets/animations/2d/jumpscare/Jumpsacre aniamtion.atlas"
+dest_files=["res://.godot/imported/Jumpsacre aniamtion.atlas-ea4b41288bae2112a57c98413a24e4be.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

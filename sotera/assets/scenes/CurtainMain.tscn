@@ -1,19 +1,11 @@
 [gd_scene format=3 uid="uid://c2elwx6sw1165"]
 
 [ext_resource type="Script" uid="uid://dm7nq7enxse37" path="res://src/scripts/main_menu.gd" id="1_7t6i1"]
-[ext_resource type="Texture2D" uid="uid://covw6hjs0benk" path="res://assets/raw/2d/pixel/scene/fortune_wheel/curtains_half.png" id="2_7t6i1"]
+[ext_resource type="PackedScene" uid="uid://bwav05t3mcd2k" path="res://assets/prefabs/curtain_prefab.tscn" id="2_k62dj"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="3_2jmyb"]
-[ext_resource type="Script" uid="uid://b54k4cp23oa4j" path="res://assets/scenes/CurtainSystem.gd" id="3_k62dj"]
-[ext_resource type="Script" uid="uid://dwlphya06wa3a" path="res://assets/scenes/main_menu_btn_hover.gd" id="5_2jmyb"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_mtjo5"]
-viewport_path = NodePath("RedirectGlowTitle")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_h4010"]
-viewport_path = NodePath("RedirectGlowWelcome")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_3dewv"]
-viewport_path = NodePath("RedirectGlowExit")
+[ext_resource type="Script" uid="uid://d21j1diayi2fi" path="res://src/scripts/main/MainMenuExitBtn.gd" id="4_ghxc0"]
+[ext_resource type="Script" uid="uid://dwlphya06wa3a" path="res://src/scripts/main/MainMenuBtn.gd" id="5_2jmyb"]
+[ext_resource type="PackedScene" uid="uid://dssc5aclv83g7" path="res://assets/prefabs/JumpScarePrefab.tscn" id="5_k62dj"]
 
 [node name="Root" type="Control" unique_id=868332111]
 layout_mode = 3
@@ -25,121 +17,21 @@ grow_vertical = 2
 script = ExtResource("1_7t6i1")
 target_scene = "res://assets/scenes/FortuneWheelScene.tscn"
 
-[node name="Systems" type="Node" parent="." unique_id=338369779]
+[node name="Curtains" parent="." unique_id=1459606750 instance=ExtResource("2_k62dj")]
 
-[node name="CurtainControlSystem" type="Node" parent="Systems" unique_id=2044969035 node_paths=PackedStringArray("curtain_left", "curtain_right")]
-script = ExtResource("3_k62dj")
-curtain_left = NodePath("../../CurtainLeft")
-curtain_right = NodePath("../../CurtainRight")
-
-[node name="CurtainLeft" type="Sprite2D" parent="." unique_id=1304444990]
-position = Vector2(271, 532)
-scale = Vector2(8, 8)
-texture = ExtResource("2_7t6i1")
-
-[node name="CurtainRight" type="Sprite2D" parent="." unique_id=1369135446]
-position = Vector2(1633, 529)
-rotation = -3.135981
-scale = Vector2(8, -8)
-texture = ExtResource("2_7t6i1")
-
-[node name="RedirectGlowTitle" type="SubViewport" parent="." unique_id=123866248]
-transparent_bg = true
-sdf_oversize = 0
-size = Vector2i(912, 368)
-
-[node name="Title" type="Label" parent="RedirectGlowTitle" unique_id=1973084896]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 50.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 280
-text = "SOTERA"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RedirectGlowWelcome" type="SubViewport" parent="." unique_id=1432651237]
-transparent_bg = true
-sdf_oversize = 0
-size = Vector2i(413, 88)
-
-[node name="Welcome" type="Label" parent="RedirectGlowWelcome" unique_id=984324997]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 10.0
-offset_bottom = 19.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.78039217, 0.5647059, 0.5647059, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 94
-text = "WELCOME"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RedirectGlowExit" type="SubViewport" parent="." unique_id=110735696]
-transparent_bg = true
-size = Vector2i(130, 70)
-
-[node name="Exit" type="Label" parent="RedirectGlowExit" unique_id=1199330058]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 10.0
-offset_bottom = 89.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.5803922, 0.45490196, 0.45490196, 1)
-theme_override_font_sizes/font_size = 70
-text = "EXIT
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Title" type="TextureRect" parent="." unique_id=1144688328]
-visible = false
-layout_mode = 0
-offset_left = 495.0
-offset_top = 313.0
-offset_right = 1407.0
-offset_bottom = 681.0
-texture = SubResource("ViewportTexture_mtjo5")
-
-[node name="Welcome" type="TextureRect" parent="." unique_id=1776409288]
-visible = false
-layout_mode = 0
-offset_left = 731.0
-offset_top = 627.0
-offset_right = 1144.0
-offset_bottom = 715.0
-texture = SubResource("ViewportTexture_h4010")
-
-[node name="Exit" type="TextureRect" parent="." unique_id=582636960]
-visible = false
-layout_mode = 0
-offset_left = 872.0
-offset_top = 731.0
-offset_right = 1002.0
-offset_bottom = 801.0
-texture = SubResource("ViewportTexture_3dewv")
-
-[node name="Exit2" type="ColorRect" parent="." unique_id=180414193 node_paths=PackedStringArray("crt", "curtain_system")]
+[node name="Exit" type="ColorRect" parent="." unique_id=180414193 node_paths=PackedStringArray("crt", "curtain_system", "jump_scare")]
 layout_mode = 0
 offset_left = 886.0
 offset_top = 797.0
 offset_right = 996.0
 offset_bottom = 847.0
 color = Color(1, 1, 1, 0)
-script = ExtResource("5_2jmyb")
+script = ExtResource("4_ghxc0")
 crt = NodePath("../CRT")
-curtain_system = NodePath("../Systems/CurtainControlSystem")
+curtain_system = NodePath("../Curtains")
+jump_scare = NodePath("../JumpScare")
 
-[node name="btn" type="Label" parent="Exit2" unique_id=1545688145]
+[node name="btn" type="Label" parent="Exit" unique_id=1545688145]
 layout_mode = 0
 offset_right = 110.0
 offset_bottom = 149.0
@@ -151,7 +43,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Title2" type="Label" parent="." unique_id=507629899]
+[node name="Title" type="Label" parent="." unique_id=507629899]
 layout_mode = 0
 offset_left = 521.0
 offset_top = 463.0
@@ -163,7 +55,7 @@ text = "SOTERA"
 text_overrun_behavior = 1
 metadata/_edit_lock_ = true
 
-[node name="Play" type="ColorRect" parent="." unique_id=1097624220 node_paths=PackedStringArray("crt", "curtain_system")]
+[node name="Play" type="ColorRect" parent="." unique_id=1097624220 node_paths=PackedStringArray("crt", "curtain_system", "jump_scare")]
 layout_mode = 0
 offset_left = 744.0
 offset_top = 700.0
@@ -172,7 +64,8 @@ offset_bottom = 770.0
 color = Color(1, 1, 1, 0)
 script = ExtResource("5_2jmyb")
 crt = NodePath("../CRT")
-curtain_system = NodePath("../Systems/CurtainControlSystem")
+curtain_system = NodePath("../Curtains")
+jump_scare = NodePath("../JumpScare")
 
 [node name="btn" type="Label" parent="Play" unique_id=552926754]
 layout_mode = 0
@@ -185,6 +78,10 @@ text = "WELCOME"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
+
+[node name="JumpScare" parent="." unique_id=1559867996 instance=ExtResource("5_k62dj")]
+visible = false
+position = Vector2(885, 1122)
 
 [node name="CRT" parent="." unique_id=719073563 instance=ExtResource("3_2jmyb")]
 layout_mode = 1
