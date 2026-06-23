@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ctimv56j7qqjo"]
 
 [ext_resource type="Script" uid="uid://cc53mm5im7qdg" path="res://src/scripts/lever.gd" id="1_wldyw"]
-[ext_resource type="Texture2D" uid="uid://dlx27g1p310r8" path="res://assets/images/lever.png" id="3_ic5fi"]
+[ext_resource type="Texture2D" uid="uid://dlx27g1p310r8" path="res://assets/raw/wheel-scene/lever.png" id="3_ic5fi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wldyw"]
 radius = 229.9793

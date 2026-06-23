@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bbqcbyvycwqrr"]
 
-[ext_resource type="Texture2D" uid="uid://n3ucyq26j0qu" path="res://assets/images/stage.png" id="1_cooqm"]
+[ext_resource type="Texture2D" uid="uid://n3ucyq26j0qu" path="res://assets/raw/wheel-scene/stage.png" id="1_cooqm"]
 [ext_resource type="PackedScene" uid="uid://hubowr5basua" path="res://assets/prefabs/Wheel.tscn" id="2_4arlo"]
 [ext_resource type="PackedScene" uid="uid://b830mwodbpleq" path="res://assets/prefabs/player.tscn" id="3_cooqm"]
 [ext_resource type="Script" uid="uid://cee05bf1k1vhv" path="res://src/scripts/stage_exit_area.gd" id="5_8cy1c"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="6_4arlo"]
-[ext_resource type="Texture2D" uid="uid://scsxnpxytqir" path="res://assets/images/curtains.png" id="7_4fco3"]
+[ext_resource type="Texture2D" uid="uid://scsxnpxytqir" path="res://assets/raw/wheel-scene/curtains.png" id="7_4fco3"]
 [ext_resource type="PackedScene" uid="uid://ctimv56j7qqjo" path="res://assets/prefabs/lever.tscn" id="7_cooqm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t6tgv"]

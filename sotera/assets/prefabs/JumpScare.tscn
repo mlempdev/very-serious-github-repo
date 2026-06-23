@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://crgbqad7i7i2t"]
 
 [ext_resource type="Script" uid="uid://cx5tpa5lgwidh" path="res://src/scripts/jumpscare/JumpScare.gd" id="1_050a5"]
-[ext_resource type="Texture2D" uid="uid://0665qrli4jg7" path="res://assets/raw/2d/vector/jumpscare/jumpscare1.png" id="2_f5mll"]
+[ext_resource type="Texture2D" uid="uid://0665qrli4jg7" path="res://assets/raw/maze/jumpscare/jumpscare1.png" id="2_f5mll"]
 [ext_resource type="AudioStream" uid="uid://cpyw8qldtloig" path="res://assets/audio/voice/dialogue/voices calling player.wav" id="3_7i03j"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="4_f5mll"]
 

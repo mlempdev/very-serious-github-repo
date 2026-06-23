@@ -2,6 +2,7 @@ extends Node2D
 
 enum WHEELSTATE {
 	SPINNING,
+	MOVING_TO_VALUE,
 	IDLE
 }
 
@@ -16,10 +17,12 @@ var max_time: float = 5.0;
 
 var speed_multiplier: float = 0.0;
 
-var items: Array[int] = [
-	5, 10, 15, 20, 25, 30
+var items: Array[String] = [
+	"maze", "bullet", "scary", "quiz", "story"
 ]
 var elapsed_spin_time = 0;
+var single_value_height_in_texture = 1.0 / items.size();
+var value_idx = 2;
 
 func _process(delta: float) -> void:
 	if elapsed_spin_time < spin_time:
@@ -33,16 +36,18 @@ func _process(delta: float) -> void:
 
 		offset += speed_multiplier;
 		offset = fmod(offset, 1.0);
+		if (spin_time - elapsed_spin_time < (spin_time * 0.25)):
+			if ($WheelSpinEffect.state != $WheelSpinEffect.WheelPEState.SPEED_DOWN_TRANSITION):
+				print($WheelSpinEffect.state)
+				$WheelSpinEffect.start_slowdown()
+			if ($WheelSpinEffect2.state != $WheelSpinEffect2.WheelPEState.SPEED_DOWN_TRANSITION):
+				$WheelSpinEffect2.start_slowdown()
 	else:
 		stop_spinning()
 
-	var single_value_height_in_texture = 1.0 / items.size();
-	var value_idx = (int(offset / single_value_height_in_texture) + (items.size()/2)) % items.size();
+	value_idx = (int((offset + 0.1) / single_value_height_in_texture) + floori(items.size() / 2)) % items.size();
 
 	$WheelTexture.material.set_shader_parameter("offset", offset);
-	$WheelTexture.material.set_shader_parameter("number_of_values", items.size());
-	$WheelTexture.material.set_shader_parameter("current_value", value_idx);
-
 	$WheelValue.text = str(items[value_idx])
 
 func _input(event):
@@ -50,16 +55,15 @@ func _input(event):
 		start_spinning()
 
 func start_spinning():
-	if state == WHEELSTATE.IDLE:
-		state = WHEELSTATE.SPINNING
-		spin_speed = RandUtils.randf_range(min_speed, max_speed)
-		spin_time = RandUtils.randf_range(min_time,max_time)
-		elapsed_spin_time = 0
-		$WheelSpinEffect.start_speedup()
-		$WheelSpinEffect2.start_speedup()
+	state = WHEELSTATE.SPINNING
+	spin_speed = RandUtils.randf_range(min_speed, max_speed)
+	spin_time = RandUtils.randf_range(min_time, max_time)
+	elapsed_spin_time = 0
 
-func stop_spinning()->void:
-	if state == WHEELSTATE.SPINNING:
-		state = WHEELSTATE.IDLE
-		$WheelSpinEffect.start_slowdown()
-		$WheelSpinEffect2.start_slowdown()
+	$WheelSpinEffect.start_speedup()
+	$WheelSpinEffect2.start_speedup()
+		
+func stop_spinning() -> void:
+	state = WHEELSTATE.IDLE
+	$WheelSpinEffect.start_slowdown()
+	$WheelSpinEffect2.start_slowdown()

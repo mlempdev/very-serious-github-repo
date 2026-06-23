@@ -27,7 +27,7 @@ func update_speed(speed, velocity_diff_multiplier):
 func _process(delta: float) -> void:
 	if elapsed_time < transition_time:
 		speed = lerp(
-			int(current_speed), # might not cnvrt to int for lil pricision but gd type err
+			int(current_speed),
 			fast_speed if state == WheelPEState.SPEED_UP_TRANSITION else normal_speed,
 			elapsed_time / transition_time
 		)

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://urcx0ou3hqip"]
+
+[ext_resource type="Script" uid="uid://ce742vrwcfiuh" path="res://src/scripts/contract.gd" id="1_liqsi"]
+[ext_resource type="Texture2D" uid="uid://q2k4r45hnd4v" path="res://assets/raw/maze/contract.png" id="2_8dy72"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3k25l"]
+radius = 136.03308
+
+[node name="Contract" type="Node2D" unique_id=2146452445]
+script = ExtResource("1_liqsi")
+
+[node name="Contract" type="Sprite2D" parent="." unique_id=2053350865]
+position = Vector2(-2, -5)
+texture = ExtResource("2_8dy72")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=869317065]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2128186504]
+shape = SubResource("CircleShape2D_3k25l")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

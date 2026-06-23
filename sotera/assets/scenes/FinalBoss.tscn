@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b1y8jb2ie62s0"]
 
-[ext_resource type="Texture2D" uid="uid://due4lbslimpee" path="res://assets/images/Screenshot_2026-06-20_101852.png" id="1_xajdg"]
+[ext_resource type="Texture2D" uid="uid://due4lbslimpee" path="res://assets/raw/delete/Screenshot_2026-06-20_101852.png" id="1_xajdg"]
 
 [node name="Test" type="Node2D" unique_id=437795735]
 

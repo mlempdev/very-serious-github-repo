@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dm7nq7enxse37" path="res://src/scripts/main_menu.gd" id="1_c4jbt"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="3_0ntwq"]
-[ext_resource type="Texture2D" uid="uid://b7ad5c10abtfo" path="res://assets/images/play-button.png" id="3_sphea"]
+[ext_resource type="Texture2D" uid="uid://b7ad5c10abtfo" path="res://assets/raw/menu/play-button.png" id="3_sphea"]
 
 [node name="MainMenu" type="Control" unique_id=408829072]
 layout_mode = 3
