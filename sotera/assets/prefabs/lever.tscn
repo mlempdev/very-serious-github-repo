@@ -9,7 +9,7 @@ radius = 229.9793
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wquy7"]
 shader = ExtResource("2_ic5fi")
-shader_parameter/thickness = 2.2000001045
+shader_parameter/thickness = 0.0
 shader_parameter/ring_count = 8
 shader_parameter/ring_offset = 0.0
 shader_parameter/outline_color = Color(1, 1, 1, 0.5058824)
