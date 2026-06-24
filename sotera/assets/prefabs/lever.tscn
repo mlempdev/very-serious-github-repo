@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://cc53mm5im7qdg" path="res://src/scripts/lever.gd" id="1_wldyw"]
 [ext_resource type="Shader" uid="uid://bnhoyto3r8pxb" path="res://assets/shaders/aio_outline.gdshader" id="2_ic5fi"]
-[ext_resource type="Texture2D" uid="uid://dlx27g1p310r8" path="res://assets/raw/wheel-scene/lever.png" id="3_ic5fi"]
+[ext_resource type="Texture2D" uid="uid://ctu71o17hwtoo" path="res://assets/raw/wheel-scene/lever_ani.png" id="4_gcpee"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wldyw"]
 radius = 229.9793
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wquy7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_48lke"]
 shader = ExtResource("2_ic5fi")
 shader_parameter/thickness = 0.0
 shader_parameter/ring_count = 8
@@ -19,6 +19,77 @@ shader_parameter/square_border = true
 shader_parameter/offset = Vector2(0, 0)
 shader_parameter/max_or_add = false
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_48lke"]
+atlas = ExtResource("4_gcpee")
+region = Rect2(100, 100, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2sjc"]
+atlas = ExtResource("4_gcpee")
+region = Rect2(50, 100, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hxh2"]
+atlas = ExtResource("4_gcpee")
+region = Rect2(0, 100, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk3by"]
+atlas = ExtResource("4_gcpee")
+region = Rect2(100, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv7ox"]
+atlas = ExtResource("4_gcpee")
+region = Rect2(50, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a82it"]
+atlas = ExtResource("4_gcpee")
+region = Rect2(0, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nncj"]
+atlas = ExtResource("4_gcpee")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkkib"]
+atlas = ExtResource("4_gcpee")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj1eq"]
+atlas = ExtResource("4_gcpee")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s2pw8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48lke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2sjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hxh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk3by")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv7ox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a82it")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nncj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkkib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aj1eq")
+}],
+"loop": 0,
+"name": &"switch_left",
+"speed": 20.0
+}]
+
 [node name="Lever" type="Node2D" unique_id=1796701312]
 script = ExtResource("1_wldyw")
 
@@ -28,12 +99,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1165707845]
 scale = Vector2(0.5610386, 0.6345566)
 shape = SubResource("CircleShape2D_wldyw")
-
-[node name="Lever" type="Sprite2D" parent="." unique_id=1178572540]
-material = SubResource("ShaderMaterial_wquy7")
-position = Vector2(7.6293945e-06, 1)
-scale = Vector2(5.71875, 5.71875)
-texture = ExtResource("3_ic5fi")
 
 [node name="Control" type="Control" parent="." unique_id=1181641598]
 layout_mode = 3
@@ -59,5 +124,12 @@ text = "E"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AnimatedLever" type="AnimatedSprite2D" parent="." unique_id=1700936950]
+material = SubResource("ShaderMaterial_48lke")
+scale = Vector2(5.719, 5.719)
+sprite_frames = SubResource("SpriteFrames_s2pw8")
+animation = &"switch_left"
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="animation_finished" from="AnimatedLever" to="." method="_on_lever_animated_animation_finished"]
