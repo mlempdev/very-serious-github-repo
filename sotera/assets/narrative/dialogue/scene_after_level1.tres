@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogueJSON" format=3 uid="uid://ru8pr85ijjpy"]
+
+[ext_resource type="Script" uid="uid://bd6vca075g71m" path="res://src/scripts/Dialogues/Dialogue_JSON.gd" id="1_ony23"]
+
+[resource]
+script = ExtResource("1_ony23")
+dialogue_lines = Array[String](["\"What a wonderful first go! I think our contestant has earned a look at her prizes don't you think?\"", "\"What's behind curtain number one!?\"", "Oooh a 666 Pandemonium Automotive Torcherer! What a beauty! You could certainly roll through the fiery pits in style with that baby! Curtain number two!", "\"Oh my that is an eternity's supply of damned souls! Just imagine all the mischief you could get up to with that! And finally! Curtain number three!\"", "\"By all that is unholy! Sam the producers are treating you tonight! Before us sits a coin of redemption! One of these coins can break any bargain made and send you straight out of the show and back to your old life! Guaranteed you're able to get your hands on it! But enough about these lovely prizes, how about we see Sam go on to round two!\""])
+metadata/_custom_type_script = "uid://bd6vca075g71m"
