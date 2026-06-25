@@ -109,5 +109,7 @@ func takeDamage(damage:int) -> void:
 		# takeDamage(0) #crashing the game on death for funsies
 
 		Events.change_level("res://assets/scenes/FortuneWheelScene.tscn")
-
+		print("Player Dead")
+		SoundPool.play_sound(SoundPool.MINIGAME_FAIL)
+		takeDamage(0) #crashing the game on death for funsies	
 	
