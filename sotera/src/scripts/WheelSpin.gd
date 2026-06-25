@@ -2,7 +2,7 @@ extends Node2D
 
 enum WHEELSTATE {
 	SPINNING,
-	MOVING_TO_VALUE,
+	COMPLETE, # We'll allow spinning only once
 	IDLE
 }
 
@@ -20,9 +20,18 @@ var speed_multiplier: float = 0.0;
 var items: Array[String] = [
 	"maze", "bullet", "scary", "quiz", "story"
 ]
+var itemSceneMap = {
+	"maze": "res://assets/scenes/StandardMaze.tscn",
+	"bullet": "res://assets/scenes/BulletHellMinigame.tscn",
+	"scary": "res://assets/scenes/ScaryMaze.tscn"
+}
+
 var elapsed_spin_time = 0;
 var single_value_height_in_texture = 1.0 / items.size();
 var value_idx = 2;
+
+func _ready() -> void:
+	offset = Events.get_spinner_start_offset()
 
 func _process(delta: float) -> void:
 	if state == WHEELSTATE.IDLE: 
@@ -51,29 +60,31 @@ func _process(delta: float) -> void:
 	$WheelTexture.material.set_shader_parameter("offset", offset);
 	$WheelValue.text = str(items[value_idx])
 
-func _input(event):
-	if event.is_action_pressed("interact"):
-		start_spinning()
-
 func start_spinning():
-	state = WHEELSTATE.SPINNING
-	spin_speed = RandUtils.randf_range(min_speed, max_speed)
-	spin_time = RandUtils.randf_range(min_time, max_time)
-	elapsed_spin_time = 0
-	print("started spin")
+	if state == WHEELSTATE.IDLE:
+		state = WHEELSTATE.SPINNING
+		spin_speed = min_speed # RandUtils.randf_range(min_speed, max_speed)
+		spin_time = min_time # RandUtils.randf_range(min_time, max_time)
+		elapsed_spin_time = 0
 
-	SoundPool.play_sound(SoundPool.WHEEL_START)
+		SoundPool.play_sound(SoundPool.WHEEL_START)
 
-	$WheelSpinEffect.start_speedup()
-	$WheelSpinEffect2.start_speedup()
+		$WheelSpinEffect.start_speedup()
+		$WheelSpinEffect2.start_speedup()
 	
-	await get_tree().create_timer(spin_time * 0.45).timeout
+		await get_tree().create_timer(spin_time * 0.45).timeout
 	
-	SoundPool.play_sound(SoundPool.WHEEL_STOP)
+		SoundPool.play_sound(SoundPool.WHEEL_STOP)
 	
 func stop_spinning() -> void:
-	state = WHEELSTATE.IDLE
-	$WheelSpinEffect.start_slowdown()
-	$WheelSpinEffect2.start_slowdown()
-	print("stopped spin")
-	SoundPool.play_sound(SoundPool.MINIGAME_SELECTED)
+	if state == WHEELSTATE.SPINNING:
+		state = WHEELSTATE.COMPLETE
+		Events.increase_spinner_starting_positoin()
+		$WheelSpinEffect.start_slowdown()
+		$WheelSpinEffect2.start_slowdown()
+
+		SoundPool.play_sound(SoundPool.MINIGAME_SELECTED)
+		Events.change_level(itemSceneMap[str(items[value_idx])])
+
+func _on_lever_lever_pulled() -> void:
+	start_spinning()

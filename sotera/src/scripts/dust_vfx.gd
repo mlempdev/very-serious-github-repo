@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 		if stop_timer >= max_lifetime:
 			_on_no_particles_alive()
 		
-func _on_player_start_moving()	-> void:
+func _on_player_start_moving() -> void:
 	if current_state == DustState.SPAWNING_PARTICLES:
 		return
 		

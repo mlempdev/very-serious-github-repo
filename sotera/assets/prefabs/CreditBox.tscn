@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cn555re174g8e"]
+
+[ext_resource type="Script" uid="uid://tar7x6qf7ugj" path="res://src/scripts/credits/CreditsBox.gd" id="1_l8ecb"]
+
+[node name="CreditBox" type="VBoxContainer" unique_id=1308695781]
+offset_right = 802.0
+offset_bottom = 200.0
+theme_override_constants/separation = 4
+alignment = 1
+script = ExtResource("1_l8ecb")
+
+[node name="Name" type="Label" parent="." unique_id=1013383420]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "Georg Hastene"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Discord Name" type="Label" parent="." unique_id=1129176529]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "georgHastene"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Roles" type="Label" parent="." unique_id=2072095084]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Programming, Art, Pixel Art"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -59,6 +59,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=353977363]
 
-[node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("4_3wkap")]
-
 [node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("5_hbjed")]
+
+[node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("4_3wkap")]

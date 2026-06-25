@@ -173,16 +173,6 @@ pattern_2 = SubResource("TileMapPattern_eytmt")
 
 [node name="StandardMaze" type="Node2D" unique_id=1981291008]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1126292774]
-
-[node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("1_gveds")]
-
-[node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("2_olgeh")]
-offset_left = 24.0
-offset_top = -3.0
-offset_right = 1941.0
-offset_bottom = 1087.0
-
 [node name="Pixel_Scaler" parent="." unique_id=443437695 instance=ExtResource("4_o565x")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Pixel_Scaler" unique_id=321159099]
@@ -196,3 +186,13 @@ position = Vector2(1549, 589)
 position = Vector2(956, 563)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=26781501]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1126292774]
+
+[node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("2_olgeh")]
+offset_left = 24.0
+offset_top = -3.0
+offset_right = 1941.0
+offset_bottom = 1087.0
+
+[node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("1_gveds")]

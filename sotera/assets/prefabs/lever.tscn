@@ -90,10 +90,16 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Lever" type="Node2D" unique_id=1796701312]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wflit"]
+radius = 32.0
+height = 144.0
+
+[node name="Lever" type="StaticBody2D" unique_id=179663144]
 script = ExtResource("1_wldyw")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=406021225]
+position = Vector2(0, -81.02501)
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1165707845]
@@ -103,8 +109,10 @@ shape = SubResource("CircleShape2D_wldyw")
 [node name="Control" type="Control" parent="." unique_id=1181641598]
 layout_mode = 3
 anchors_preset = 0
+offset_top = -81.02501
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = -41.02501
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Control" unique_id=726261120]
 visible = false
@@ -126,10 +134,15 @@ vertical_alignment = 1
 
 [node name="AnimatedLever" type="AnimatedSprite2D" parent="." unique_id=1700936950]
 material = SubResource("ShaderMaterial_48lke")
+position = Vector2(0, -81.02501)
 scale = Vector2(5.719, 5.719)
 sprite_frames = SubResource("SpriteFrames_s2pw8")
 animation = &"switch_left"
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1040071942]
+position = Vector2(0, -40)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_wflit")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="animation_finished" from="AnimatedLever" to="." method="_on_lever_animated_animation_finished"]

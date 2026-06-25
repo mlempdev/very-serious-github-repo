@@ -271,9 +271,9 @@ offset_bottom = 38.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1305034330]
 
-[node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("4_sx2vv")]
-
 [node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("4_g2uak")]
+
+[node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("4_sx2vv")]
 
 [connection signal="timeout" from="EnemySpawner/SpawnCooldown" to="EnemySpawner" method="spawnEnemy"]
 [connection signal="timeout" from="EnemySpawner/WaveDelay" to="EnemySpawner" method="startWave"]

@@ -33,6 +33,7 @@ scale = Vector2(6.3333335, 6.333335)
 texture = ExtResource("3_7ort1")
 
 [node name="WheelValue" type="Label" parent="." unique_id=718211304]
+visible = false
 offset_left = -28.579773
 offset_top = -619.0
 offset_right = 18.420227

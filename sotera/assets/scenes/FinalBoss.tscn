@@ -1,10 +1,137 @@
 [gd_scene format=3 uid="uid://b1y8jb2ie62s0"]
 
-[ext_resource type="Texture2D" uid="uid://due4lbslimpee" path="res://assets/raw/delete/Screenshot_2026-06-20_101852.png" id="1_xajdg"]
+[ext_resource type="Script" uid="uid://ca7ugi6emcwu" path="res://src/scripts/final_boss.gd" id="1_6ag57"]
+[ext_resource type="Script" uid="uid://d2qode13dvwob" path="res://src/scripts/question.gd" id="2_k525x"]
 
-[node name="Test" type="Node2D" unique_id=437795735]
+[sub_resource type="Resource" id="Resource_6ag57"]
+script = ExtResource("2_k525x")
+question = "What is your name?"
+option_a = "max"
+option_b = "divid"
+option_c = "skf"
+option_d = "bk"
+metadata/_custom_type_script = "uid://d2qode13dvwob"
 
-[node name="Screenshot20260620101852" type="Sprite2D" parent="." unique_id=1048853929]
-position = Vector2(984, 538)
-scale = Vector2(2.3073592, 2.3073592)
-texture = ExtResource("1_xajdg")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oag77"]
+bg_color = Color(0.6906835, 0.15478319, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syr0s"]
+bg_color = Color(0.36577877, 0.6953433, 0.19424301, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Quiz" type="Control" unique_id=1375970361]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ag57")
+boss_max_health = 100
+player_max_health = 10
+boss_damage = 1
+player_damage = 10
+questions = Array[ExtResource("2_k525x")]([SubResource("Resource_6ag57")])
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1195852189]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.41406584, 0.41406578, 0.41406578, 1)
+
+[node name="Options" type="HBoxContainer" parent="." unique_id=2003478243]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.5
+offset_top = -52.0
+offset_right = 204.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+layout_direction = 3
+theme_override_constants/separation = 100
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Options" unique_id=1693781074]
+layout_mode = 2
+
+[node name="OptionC" type="Button" parent="Options/VBoxContainer2" unique_id=1841641238]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+focus_neighbor_left = NodePath("../../VBoxContainer/OptionA")
+focus_neighbor_bottom = NodePath("../OptionD")
+text = "c"
+
+[node name="OptionD" type="Button" parent="Options/VBoxContainer2" unique_id=794941133]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+focus_neighbor_left = NodePath("../../VBoxContainer/OptionB")
+focus_neighbor_top = NodePath("../OptionC")
+text = "d"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options" unique_id=2066377264]
+layout_mode = 2
+
+[node name="OptionA" type="Button" parent="Options/VBoxContainer" unique_id=653235471]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+focus_neighbor_right = NodePath("../../VBoxContainer2/OptionC")
+focus_neighbor_bottom = NodePath("../OptionB")
+text = "a"
+
+[node name="OptionB" type="Button" parent="Options/VBoxContainer" unique_id=1667687650]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+focus_neighbor_top = NodePath("../OptionA")
+focus_neighbor_right = NodePath("../../VBoxContainer2/OptionD")
+text = "b"
+
+[node name="QuestionLabel" type="Label" parent="." unique_id=1699864311]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -9.0
+offset_right = 0.5
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BossHealthBar" type="ProgressBar" parent="." unique_id=1510013361]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -326.0
+offset_right = 326.0
+offset_bottom = 44.0
+grow_horizontal = 2
+layout_direction = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_oag77")
+theme_override_styles/fill = SubResource("StyleBoxFlat_syr0s")
+value = 50.0
+show_percentage = false
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="." unique_id=1775071345]
+layout_mode = 0
+offset_left = 828.0
+offset_top = 1019.0
+offset_right = 1102.0
+offset_bottom = 1041.0
+show_percentage = false

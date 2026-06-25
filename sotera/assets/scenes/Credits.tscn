@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://bkn6gyyl7apks"]
+
+[ext_resource type="PackedScene" uid="uid://bwav05t3mcd2k" path="res://assets/prefabs/curtain_prefab.tscn" id="1_qj66x"]
+[ext_resource type="Script" uid="uid://c5vmvs0857yd5" path="res://src/scripts/credits/CreditsSpaceReturn.gd" id="1_vkh5u"]
+[ext_resource type="Script" uid="uid://bclqn0nty65pk" path="res://src/scripts/credits/Credits.gd" id="2_6dygs"]
+[ext_resource type="Script" uid="uid://bsrph2vypu7br" path="res://src/scripts/credits/CreditsAllElementsController.gd" id="2_khlcu"]
+[ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="4_khlcu"]
+[ext_resource type="Script" uid="uid://dnwagqmfpnviu" path="res://src/systems/parallax/ParallaxSystem.gd" id="5_g176k"]
+
+[node name="Credits" type="Node" unique_id=984660685]
+script = ExtResource("1_vkh5u")
+curtain_menu_scene = "res://assets/scenes/CurtainMain.tscn"
+
+[node name="Curtains" parent="." unique_id=1568423794 instance=ExtResource("1_qj66x")]
+position = Vector2(-16, 23)
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="." unique_id=1058612760]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control" unique_id=389230432]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_horizontal_custom_step = 0.0
+scroll_vertical_custom_step = 100.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="All Elements" type="VBoxContainer" parent="Control/ScrollContainer" unique_id=1097063463]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+script = ExtResource("2_khlcu")
+range_delay_time_before_scroll = Vector2(1, 1)
+range_auto_scroll_speed = Vector2(100, 120.5)
+
+[node name="Credits Title" type="Label" parent="Control/ScrollContainer/All Elements" unique_id=1694053690]
+layout_mode = 2
+theme_override_font_sizes/font_size = 236
+text = "CREDITS"
+horizontal_alignment = 1
+
+[node name="Credits Holder" type="VBoxContainer" parent="Control/ScrollContainer/All Elements" unique_id=670051576]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+script = ExtResource("2_6dygs")
+color_1st_line = Color(0.8745098, 0.7490196, 0.7490196, 1)
+color_2nd_line = Color(0.78039217, 0.5647059, 0.5647059, 1)
+
+[node name="Margin" type="Label" parent="Control/ScrollContainer/All Elements" unique_id=117839613]
+layout_mode = 2
+theme_override_font_sizes/font_size = 236
+horizontal_alignment = 1
+
+[node name="Space To Return" type="Label" parent="Control" unique_id=1057916012]
+layout_mode = 0
+offset_left = 686.0
+offset_top = 1003.0
+offset_right = 1213.0
+offset_bottom = 1054.0
+theme_override_colors/font_color = Color(0.81960785, 0.8117647, 0.5254902, 1)
+theme_override_font_sizes/font_size = 48
+text = "<press space to return>"
+
+[node name="CRT" parent="Control" unique_id=719073563 instance=ExtResource("4_khlcu")]
+layout_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Systems" type="Node" parent="." unique_id=351743215]
+
+[node name="Parallax" type="Node" parent="Systems" unique_id=920979207 node_paths=PackedStringArray("layers")]
+script = ExtResource("5_g176k")
+layers = [NodePath("../../Curtains")]
+metadata/_custom_type_script = "uid://dnwagqmfpnviu"

@@ -6,7 +6,6 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bpvk3"]
 atlas = ExtResource("1_bpvk3")
-region = Rect2(16, 0, 15, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fksnf"]
 atlas = ExtResource("3_b45cb")
@@ -21,14 +20,15 @@ script = ExtResource("1_fksnf")
 
 [node name="Hearts" type="HBoxContainer" parent="." unique_id=960481075]
 layout_mode = 0
-offset_left = 134.0
+offset_left = 126.43
 offset_top = 22.0
-offset_right = 210.0
+offset_right = 455.43
 offset_bottom = 98.0
 
 [node name="heart" type="TextureRect" parent="Hearts" unique_id=1201096183]
 layout_mode = 2
 texture = SubResource("AtlasTexture_bpvk3")
+expand_mode = 3
 
 [node name="Contracts" type="HBoxContainer" parent="." unique_id=629596135]
 layout_mode = 0

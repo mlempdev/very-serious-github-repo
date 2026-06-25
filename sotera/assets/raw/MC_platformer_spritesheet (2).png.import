@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsahxbiavgbje"
-path="res://.godot/imported/MC_platformer_spritesheet.png-3ce8c40c623dd90f27f6c97959162086.ctex"
+uid="uid://dw07aj3turlb"
+path="res://.godot/imported/MC_platformer_spritesheet (2).png-5821fe7f95f149d8ed9373097562580c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/raw/MC_platformer_spritesheet.png"
-dest_files=["res://.godot/imported/MC_platformer_spritesheet.png-3ce8c40c623dd90f27f6c97959162086.ctex"]
+source_file="res://assets/raw/MC_platformer_spritesheet (2).png"
+dest_files=["res://.godot/imported/MC_platformer_spritesheet (2).png-5821fe7f95f149d8ed9373097562580c.ctex"]
 
 [params]
 
