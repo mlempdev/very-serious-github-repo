@@ -1,33 +1,28 @@
 extends Node
 
-@export var enemyScene:PackedScene
-@export var player:BulletHellCharacter
-@export var spawnerLocations:Array[Node2D]
-@export var waves:Array[int]
-var currentWave:int = 0
-var enemiesSpawned = 0
-var enemiesKilled:int = 0
-var enemies:Array[BulletHellEnemy]
+@export var enemyScene: PackedScene
+@export var player: BulletHellCharacter
+@export var spawnerLocations: Array[Node2D]
+@export var waves: Array[int]
+var currentWave: int = 0
+var enemiesSpawned: int = 0
+var enemiesKilled: int = 0
+var enemies: Array[BulletHellEnemy]
 
 func _ready() -> void:
 	startWave()
-	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
 
 func getNewEnemy()->BulletHellEnemy:
-	for e in enemies:
-		if e.isDisabled():
-			return e
-	var toAdd = enemyScene.instantiate()
-	toAdd.enemyKilled.connect(onEnemyKilled)
-	get_node("/root/BulletHellMinigame").add_child(toAdd)
-	enemies.append(toAdd)
-	return toAdd
+	for enemy in enemies:
+		if enemy.isDisabled():
+			return enemy
+
+	var new_enemy = enemyScene.instantiate()
+	new_enemy.enemyKilled.connect(onEnemyKilled)
+	get_node("/root/BulletHellMinigame").add_child(new_enemy)
+	enemies.append(new_enemy)
+	return new_enemy
 
 func onEnemyKilled(enemy:BulletHellEnemy)->void:
 	enemiesKilled+=1

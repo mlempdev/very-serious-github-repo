@@ -11,29 +11,65 @@ shader = ExtResource("2_cdcth")
 shader_parameter/offset = 0.0
 shader_parameter/spinnerTexture = ExtResource("3_7ort1")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7ort1"]
+radius = 36.832886
+height = 218.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ii04"]
+radius = 36.832886
+height = 218.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bkwpo"]
+radius = 140.0
+height = 434.0
+
 [node name="WheelSpin" type="Node2D" unique_id=1465385523]
 script = ExtResource("1_kjr7i")
 
 [node name="WheelTexture" type="Sprite2D" parent="." unique_id=1675824674]
 material = SubResource("ShaderMaterial_1cqo2")
+position = Vector2(-4.579773, -307)
 scale = Vector2(6.3333335, 6.333335)
 texture = ExtResource("3_7ort1")
 
 [node name="WheelValue" type="Label" parent="." unique_id=718211304]
-offset_left = -24.0
-offset_top = -312.0
-offset_right = 23.0
-offset_bottom = -289.0
+offset_left = -28.579773
+offset_top = -619.0
+offset_right = 18.420227
+offset_bottom = -596.0
 horizontal_alignment = 1
 
 [node name="Wheel" type="Sprite2D" parent="." unique_id=752700838]
-position = Vector2(45, 6)
+position = Vector2(40.420227, -301)
 scale = Vector2(6.56383, 6.56383)
 texture = ExtResource("5_7ort1")
 
 [node name="WheelSpinEffect" parent="." unique_id=1160851600 instance=ExtResource("6_2ii04")]
-position = Vector2(2, -77)
+position = Vector2(-2.579773, -384)
 
 [node name="WheelSpinEffect2" parent="." unique_id=1456651952 instance=ExtResource("6_2ii04")]
-position = Vector2(8, 88)
+position = Vector2(3.420227, -219)
 rotation = 3.1415927
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1961394065]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1466401752]
+position = Vector2(234, -156)
+rotation = -0.18508449
+scale = Vector2(1.0323452, 1.0323452)
+shape = SubResource("CapsuleShape2D_7ort1")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=370194537]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=220222321]
+position = Vector2(-238.00003, -156)
+rotation = 0.1850049
+scale = Vector2(1.0323452, 1.0323452)
+shape = SubResource("CapsuleShape2D_2ii04")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=577120183]
+position = Vector2(-950, -836)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2132770328]
+position = Vector2(947, 541)
+shape = SubResource("CapsuleShape2D_bkwpo")

@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 var width = 60;
 var height = 18;
@@ -17,7 +17,7 @@ func get_heart_region(lives) -> Rect2:
 
 func _ready() -> void:
 	heart.texture.region = get_heart_region(Globals.Lives)
-	heart.stretch_mode = TextureRect.STRETCH_KEEP
+	#heart.stretch_mode = TextureRect.STRETCH_KEEP
 	
 	contract_label.text = str(Globals.Total_contracts)
 

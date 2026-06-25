@@ -427,7 +427,8 @@ shape = SubResource("CircleShape2D_mouw8")
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=1648659667]
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_ixt6l")
-animation = &"rightrun_reverse"
+animation = &"leftrun"
+frame_progress = 0.16280946
 
 [node name="BulletHellGun" parent="." unique_id=554639469 instance=ExtResource("5_3fn2k")]
 

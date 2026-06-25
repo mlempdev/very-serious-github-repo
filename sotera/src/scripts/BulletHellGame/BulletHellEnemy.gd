@@ -2,17 +2,18 @@ extends CharacterBody2D
 class_name BulletHellEnemy
 
 #@export var meleeRange:float
-@export var melee:Node2D
-@export var navAgent:NavigationAgent2D
+@export var melee: Node2D
+@export var navAgent: NavigationAgent2D
 @export var movementSpeed: float = 200.0
-@export var maxHp:int
-@export var damage:int
-@onready var hp = maxHp
-var player:BulletHellCharacter
-var spawnPos:Vector2
-var damagingPlayer = false
+@export var maxHp: int
+@export var damage: int
 
-var state:BHENEMYSTATE = BHENEMYSTATE.DISABLED
+@onready var hp = maxHp
+
+var player: BulletHellCharacter
+var spawnPos: Vector2
+var damagingPlayer = false
+var state: BHENEMYSTATE = BHENEMYSTATE.DISABLED
 
 signal enemyKilled(enemy:BulletHellEnemy)
 
@@ -22,7 +23,6 @@ enum BHENEMYSTATE{
 	ATTACKING
 }
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#navAgent.set_target_desired_distance(m)
 	actor_setup.call_deferred()

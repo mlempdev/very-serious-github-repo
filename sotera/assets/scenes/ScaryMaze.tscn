@@ -3,13 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://b830mwodbpleq" path="res://assets/prefabs/player.tscn" id="1_62l1t"]
 [ext_resource type="PackedScene" uid="uid://1r4ydw3tyo5s" path="res://assets/scenes/scary_maze_lv_1.tscn" id="1_owkrm"]
 [ext_resource type="Texture2D" uid="uid://bqykonrifpc3x" path="res://assets/raw/maze/Player_Light.png" id="3_77in4"]
+[ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="4_3wkap"]
+[ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="5_hbjed"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_owkrm"]
 distance = 1.9999924
 
 [node name="ScaryMaze" type="Node2D" unique_id=1149450057]
 
-[node name="ScaryMazeLv1" parent="." unique_id=631495778 instance=ExtResource("1_owkrm")]
+[node name="ScaryMazeLv1" parent="." unique_id=631495778 node_paths=PackedStringArray("point_light", "darkness", "player") instance=ExtResource("1_owkrm")]
+point_light = NodePath("../Player/PointLight2D")
+darkness = NodePath("../CanvasModulate")
+player = NodePath("../Player")
 
 [node name="worldboundary" type="Node2D" parent="." unique_id=638251911]
 
@@ -51,3 +56,9 @@ texture_scale = 1.2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1333303275]
 color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=353977363]
+
+[node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("4_3wkap")]
+
+[node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("5_hbjed")]

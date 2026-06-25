@@ -4,6 +4,15 @@
 [ext_resource type="Script" uid="uid://bxvm1qmxyc60c" path="res://src/scripts/BulletHellGame/BulletHellEnemySpawner.gd" id="2_k22da"]
 [ext_resource type="PackedScene" uid="uid://djlcsqi5rdk0t" path="res://assets/prefabs/BulletHellGame/BulletHellEnemy.tscn" id="3_1tnea"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="4_g2uak"]
+[ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="4_sx2vv"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_u2d4l"]
+vertices = PackedVector2Array(660.0078, -342.6797, 669.8594, -383.77344, 739.53906, -351.3125, 727.89844, -297.28906, 635.52344, -215.0625, 591.75, -280.4375, 567.3281, -200.5, 644.4219, -129.4375, -392.77344, 397, -289.92188, -404.10938, -224.71094, -434.32813, -210.04688, -393.60938, -281.39063, -351.22656, -265.8672, -322.0078, -171.17188, -331.20313, -240.63281, -296.77344, -226.28125, -206.27344, -134.1875, -285.22656, -114.75781, -253.64844, 746.46875, -27.382813, 799, 102.953125, 799, 234.84375, 725.53125, 397.9922, -267.78125, -168.14063, 39.171875, -289, 278.82813, -289.9922, 452.92188, -248.4375, -465.0078, 250.61719, -465.97656, 95.97656, -409.46094, -38.5, -326.4375, -128.35938)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 0, 4, 6), PackedInt32Array(6, 4, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 12, 11, 14, 15), PackedInt32Array(16, 15, 14, 17, 18), PackedInt32Array(19, 20, 21, 22, 8, 7), PackedInt32Array(23, 16, 18, 24, 25, 26, 6, 8, 27, 28), PackedInt32Array(23, 28, 29, 30)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-274, -176, -237, -210, -250, -292, -274, -316, -291, -348, -301, -410, -219, -448, -201, -398, -163, -337, -126, -291, -110, -265, 38, -299, 280, -300, 456, -258, 561, -214, 583, -286, 651, -348, 663, -398, 751, -357, 737, -292, 646, -211, 654, -134, 755, -33, 809, 101, 809, 237, 732, 408, -399, 407, -475, 253, -476, 94, -418, -44, -333, -136)])
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mouw8"]
+load_path = "res://.godot/imported/Bullet_hell_ver2.png-cb0ec54e41066676c8c47af6772f7af1.ctex"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n048l"]
 radius = 44.0
@@ -28,14 +37,6 @@ height = 252.84985
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p01b3"]
 radius = 24.734253
 height = 186.84021
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_u2d4l"]
-vertices = PackedVector2Array(660.0078, -342.6797, 669.8594, -383.77344, 739.53906, -351.3125, 727.89844, -297.28906, 635.52344, -215.0625, 591.75, -280.4375, 567.3281, -200.5, 644.4219, -129.4375, -392.77344, 397, -289.92188, -404.10938, -224.71094, -434.32813, -210.04688, -393.60938, -281.39063, -351.22656, -265.8672, -322.0078, -171.17188, -331.20313, -240.63281, -296.77344, -226.28125, -206.27344, -134.1875, -285.22656, -114.75781, -253.64844, 746.46875, -27.382813, 799, 102.953125, 799, 234.84375, 725.53125, 397.9922, -267.78125, -168.14063, 39.171875, -289, 278.82813, -289.9922, 452.92188, -248.4375, -465.0078, 250.61719, -465.97656, 95.97656, -409.46094, -38.5, -326.4375, -128.35938)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 0, 4, 6), PackedInt32Array(6, 4, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 12, 11, 14, 15), PackedInt32Array(16, 15, 14, 17, 18), PackedInt32Array(19, 20, 21, 22, 8, 7), PackedInt32Array(23, 16, 18, 24, 25, 26, 6, 8, 27, 28), PackedInt32Array(23, 28, 29, 30)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-274, -176, -237, -210, -250, -292, -274, -316, -291, -348, -301, -410, -219, -448, -201, -398, -163, -337, -126, -291, -110, -265, 38, -299, 280, -300, 456, -258, 561, -214, 583, -286, 651, -348, 663, -398, 751, -357, 737, -292, 646, -211, 654, -134, 755, -33, 809, 101, 809, 237, 732, 408, -399, 407, -475, 253, -476, 94, -418, -44, -333, -136)])
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mouw8"]
-load_path = "res://.godot/imported/Bullet_hell_ver2.png-cb0ec54e41066676c8c47af6772f7af1.ctex"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2d4l"]
 radius = 40.0
@@ -98,6 +99,20 @@ distance = 8.898792
 
 [node name="BulletHellMinigame" type="Node2D" unique_id=605887518]
 
+[node name="BulletHellCharacter" parent="." unique_id=770224643 instance=ExtResource("1_mouw8")]
+position = Vector2(948, 563)
+floor_stop_on_slope = false
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2056125960]
+visible = false
+position = Vector2(791, 665)
+navigation_polygon = SubResource("NavigationPolygon_u2d4l")
+
+[node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=316734933]
+position = Vector2(964, 540)
+scale = Vector2(6.01875, 5.9555554)
+texture = SubResource("CompressedTexture2D_mouw8")
+
 [node name="RightWall" type="StaticBody2D" parent="." unique_id=199206764 groups=["Background"]]
 position = Vector2(1647, 826)
 collision_layer = 3
@@ -130,20 +145,6 @@ shape = SubResource("CapsuleShape2D_wxnwa")
 position = Vector2(-127, -397)
 rotation = 0.7694781
 shape = SubResource("CapsuleShape2D_p01b3")
-
-[node name="BulletHellCharacter" parent="." unique_id=770224643 instance=ExtResource("1_mouw8")]
-position = Vector2(948, 563)
-floor_stop_on_slope = false
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2056125960]
-visible = false
-position = Vector2(791, 665)
-navigation_polygon = SubResource("NavigationPolygon_u2d4l")
-
-[node name="BackgroundSprite" type="Sprite2D" parent="." unique_id=316734933]
-position = Vector2(964, 540)
-scale = Vector2(6.01875, 5.9555554)
-texture = SubResource("CompressedTexture2D_mouw8")
 
 [node name="TopWall" type="StaticBody2D" parent="." unique_id=204843181 groups=["Background"]]
 position = Vector2(962, 320)
@@ -265,7 +266,11 @@ offset_top = 15.0
 offset_right = 65.0
 offset_bottom = 38.0
 
-[node name="CRT" parent="." unique_id=719073563 instance=ExtResource("4_g2uak")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1305034330]
+
+[node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("4_sx2vv")]
+
+[node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("4_g2uak")]
 
 [connection signal="timeout" from="EnemySpawner/SpawnCooldown" to="EnemySpawner" method="spawnEnemy"]
 [connection signal="timeout" from="EnemySpawner/WaveDelay" to="EnemySpawner" method="startWave"]

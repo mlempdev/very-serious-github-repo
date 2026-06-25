@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dgsjlqp3a2lar"]
 
+[ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="1_gveds"]
 [ext_resource type="PackedScene" uid="uid://b830mwodbpleq" path="res://assets/prefabs/player.tscn" id="1_v6fnw"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="2_olgeh"]
 [ext_resource type="PackedScene" uid="uid://urcx0ou3hqip" path="res://assets/prefabs/contract.tscn" id="3_alw0s"]
@@ -173,6 +174,8 @@ pattern_2 = SubResource("TileMapPattern_eytmt")
 [node name="StandardMaze" type="Node2D" unique_id=1981291008]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1126292774]
+
+[node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("1_gveds")]
 
 [node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("2_olgeh")]
 offset_left = 24.0

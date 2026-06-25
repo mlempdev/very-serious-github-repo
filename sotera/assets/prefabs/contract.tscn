@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://q2k4r45hnd4v" path="res://assets/raw/maze/contract.png" id="2_8dy72"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3k25l"]
-radius = 264.0
+radius = 143.05594
 
 [node name="Contract" type="Node2D" unique_id=2146452445]
 script = ExtResource("1_liqsi")
@@ -21,11 +21,14 @@ shape = SubResource("CircleShape2D_3k25l")
 
 [node name="Button" type="Button" parent="." unique_id=255000873]
 visible = false
-offset_left = -242.0
-offset_top = -400.0
-offset_right = 245.0
-offset_bottom = -183.0
+offset_left = -240.0
+offset_top = -215.0
+offset_right = 247.0
+offset_bottom = 2.0
+
 theme_override_colors/font_color = Color(0.8008665, 0.1433889, 0.11949948, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 40
 text = "pick up contract"
 

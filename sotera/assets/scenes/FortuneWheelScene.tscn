@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bbqcbyvycwqrr"]
 
+[ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="1_8cy1c"]
 [ext_resource type="Texture2D" uid="uid://n3ucyq26j0qu" path="res://assets/raw/wheel-scene/stage.png" id="1_cooqm"]
 [ext_resource type="PackedScene" uid="uid://hubowr5basua" path="res://assets/prefabs/Wheel.tscn" id="2_4arlo"]
 [ext_resource type="PackedScene" uid="uid://b830mwodbpleq" path="res://assets/prefabs/player.tscn" id="3_cooqm"]
@@ -19,15 +20,17 @@ size = Vector2(1920.5, 199.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=619906068]
 
+[node name="Control" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("1_8cy1c")]
+
 [node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("6_4arlo")]
 
 [node name="Stage" type="Sprite2D" parent="." unique_id=969645194]
-position = Vector2(960.2221, 540.75006)
+position = Vector2(960.0001, 544)
 scale = Vector2(6.0027785, 6.0027785)
 texture = ExtResource("1_cooqm")
 
 [node name="Wheel" parent="." unique_id=1465385523 instance=ExtResource("2_4arlo")]
-position = Vector2(948, 544)
+position = Vector2(950, 836)
 
 [node name="worldboundary" type="Node2D" parent="." unique_id=1162189176]
 visible = false
@@ -76,7 +79,7 @@ offset_right = 96.62488
 offset_bottom = -100.0564
 
 [node name="Steven" parent="stage-exit-area" unique_id=2100930359 instance=ExtResource("4_4fco3")]
-position = Vector2(-1364.3751, -202.0564)
+position = Vector2(-1372.3751, -84.0564)
 
 [node name="Lever" parent="." unique_id=1796701312 instance=ExtResource("7_cooqm")]
 position = Vector2(1462, 796)
@@ -85,6 +88,6 @@ position = Vector2(1462, 796)
 position = Vector2(1812, 814)
 
 [node name="Curtains" type="Sprite2D" parent="." unique_id=965856818]
-position = Vector2(951, 538)
-scale = Vector2(5.972222, 5.972222)
+position = Vector2(960.00006, 544)
+scale = Vector2(6, 6)
 texture = ExtResource("7_4fco3")

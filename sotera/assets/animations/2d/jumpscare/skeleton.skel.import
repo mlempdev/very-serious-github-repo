@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://h02uwabneggw"
+path="res://.godot/imported/skeleton.skel-192161ab439380eee6669da02e2b3009.spskel"
+
+[deps]
+
+source_file="res://assets/animations/2d/jumpscare/skeleton.skel"
+dest_files=["res://.godot/imported/skeleton.skel-192161ab439380eee6669da02e2b3009.spskel"]
+
+[params]
+

@@ -7,4 +7,8 @@ class_name JumpscareAnimationConfig
 func _init() -> void:
 	assert(false, "Use RandUtils.target_function() instead")
 
-static var JUMP: RangeTrack = RangeTrack.new("Jump", 0.92, 1.08, true) # somehow lock whis variable - TODO
+# somehow lock variable (block from editing) - TODO 
+static var JUMP: RangeTrack = RangeTrack.new("Jump", 0.92, 1.08, false)
+static var HAND_JUMP: RangeTrack = RangeTrack.new("Hand Only", 0.8, 0.98, false) 
+static var JUMP_LOOK: RangeTrack = RangeTrack.new("Jump", 0.9, 1.15, false)
+static var JUMP_NO_HANDS: RangeTrack = RangeTrack.new("Jump No Hands", 1.0, 1.11, false) 

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cxlquxjag0sj6" path="res://assets/raw/maze/Scary Maze lv 1 (Modular Tiles).png" id="1_m616o"]
 [ext_resource type="Script" uid="uid://dolxup8ul3ivj" path="res://src/scripts/scary_maze_lv_1.gd" id="1_rwsp3"]
 [ext_resource type="PackedScene" uid="uid://urcx0ou3hqip" path="res://assets/prefabs/contract.tscn" id="3_14lej"]
+[ext_resource type="PackedScene" uid="uid://dssc5aclv83g7" path="res://assets/prefabs/JumpScarePrefab.tscn" id="4_cfk36"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dokus"]
 texture = ExtResource("1_m616o")
@@ -139,6 +140,73 @@ sources/0 = SubResource("TileSetAtlasSource_pj8ha")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5aca"]
 size = Vector2(92.5, 448)
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_13qdw"]
+frequency = 0.163
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7feiw"]
+noise = SubResource("FastNoiseLite_13qdw")
+
+[sub_resource type="Animation" id="Animation_3wkap"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Static:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Static:texture:noise:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hbjed"]
+resource_name = "play_static"
+length = 1.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Static:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Static:texture:noise:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 656.72, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bi4sf"]
+_data = {
+&"RESET": SubResource("Animation_3wkap"),
+&"play_static": SubResource("Animation_hbjed")
+}
+
 [node name="ScaryMazeLv1" type="Node2D" unique_id=631495778]
 script = ExtResource("1_rwsp3")
 
@@ -167,7 +235,7 @@ position = Vector2(0, 2)
 polygon = PackedVector2Array(65, 61, 70, -4, 5, -4, 5, 1087, 1921, 1082, 1919, -2, 73, -5, 67, 57, 508, 58, 514, 571, 827, 567, 835, 512, 566, 512, 571, 51, 1857, 53, 1862, 509, 1284, 516, 1288, 567, 1919, 563, 1922, 1021, 53, 1027)
 
 [node name="Contract" parent="." unique_id=2146452445 instance=ExtResource("3_14lej")]
-position = Vector2(1628, 268)
+position = Vector2(1644, 332)
 
 [node name="ExitArea" type="Area2D" parent="." unique_id=127777131]
 collision_mask = 2
@@ -175,6 +243,21 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea" unique_id=668337159]
 position = Vector2(1870.25, 793)
 shape = SubResource("RectangleShape2D_t5aca")
+
+[node name="Jumpscare" parent="." unique_id=1559867996 instance=ExtResource("4_cfk36")]
+visible = false
+position = Vector2(1052, 829)
+
+[node name="Static" type="TextureRect" parent="." unique_id=252722555]
+visible = false
+offset_left = -326.0
+offset_top = -276.0
+offset_right = 2111.0
+offset_bottom = 1257.0
+texture = SubResource("NoiseTexture2D_7feiw")
+
+[node name="StaticAnim" type="AnimationPlayer" parent="." unique_id=1265792358]
+libraries/ = SubResource("AnimationLibrary_bi4sf")
 
 [connection signal="body_entered" from="WallArea" to="." method="_on_wall_area_body_entered"]
 [connection signal="body_entered" from="ExitArea" to="." method="_on_exit_area_body_entered"]
