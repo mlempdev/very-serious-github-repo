@@ -44,6 +44,7 @@ dialogue = NodePath("CanvasLayer/Dialogue")
 [node name="BG" type="Node" parent="World" unique_id=1342912320]
 
 [node name="StageBackground" type="Sprite2D" parent="World/BG" unique_id=2040698246]
+visible = false
 position = Vector2(958.99976, 522)
 scale = Vector2(7.228125, 7.6277776)
 texture = ExtResource("2_fe3tk")
@@ -56,7 +57,6 @@ texture = ExtResource("2_ybih4")
 metadata/_edit_lock_ = true
 
 [node name="Audience" type="Node2D" parent="World" unique_id=1246452229]
-visible = false
 
 [node name="v1" type="Sprite2D" parent="World/Audience" unique_id=884270620]
 position = Vector2(866.00006, 529)
@@ -171,7 +171,8 @@ texture = ExtResource("6_4tcif")
 
 [node name="Lights2" type="Sprite2D" parent="Group Curtains" unique_id=1865077684]
 position = Vector2(327, 332)
-scale = Vector2(-5.276188, 5.623645)
+rotation = 3.1415927
+scale = Vector2(5.276188, -5.623645)
 texture = ExtResource("6_4tcif")
 
 [node name="Curtains" parent="Group Curtains" unique_id=1568423794 instance=ExtResource("8_dsjn4")]
