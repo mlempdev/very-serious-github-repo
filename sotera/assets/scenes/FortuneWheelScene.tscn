@@ -178,16 +178,18 @@ texture = ExtResource("6_4tcif")
 [node name="Curtains" parent="Group Curtains" unique_id=1568423794 instance=ExtResource("8_dsjn4")]
 metadata/_edit_lock_ = true
 
-[node name="Left Collision" type="Area2D" parent="Group Curtains" unique_id=1993275976 node_paths=PackedStringArray("curtains")]
+[node name="Left Collision" type="Area2D" parent="Group Curtains" unique_id=1993275976 node_paths=PackedStringArray("curtains", "dialogue")]
 script = ExtResource("7_d7hmc")
 curtains = NodePath("../Curtains")
+dialogue = NodePath("../../CanvasLayer/Dialogue")
 
 [node name="Poly2D" type="CollisionPolygon2D" parent="Group Curtains/Left Collision" unique_id=1927065070]
 polygon = PackedVector2Array(58, -68, 65, 1189, -84, 1182, -98, -72)
 
-[node name="Right Collision" type="Area2D" parent="Group Curtains" unique_id=1264081865 node_paths=PackedStringArray("curtains")]
+[node name="Right Collision" type="Area2D" parent="Group Curtains" unique_id=1264081865 node_paths=PackedStringArray("curtains", "dialogue")]
 script = ExtResource("7_d7hmc")
 curtains = NodePath("../Curtains")
+dialogue = NodePath("../../CanvasLayer/Dialogue")
 
 [node name="Poly2D" type="CollisionPolygon2D" parent="Group Curtains/Right Collision" unique_id=1598373200]
 position = Vector2(1914.9932, -14)
@@ -196,8 +198,9 @@ polygon = PackedVector2Array(58, -68, 65, 1189, -84, 1182, -98, -72)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=619906068]
 
-[node name="PauseBox" parent="CanvasLayer" unique_id=617542604 node_paths=PackedStringArray("curtains") instance=ExtResource("10_6vnka")]
+[node name="PauseBox" parent="CanvasLayer" unique_id=617542604 node_paths=PackedStringArray("curtains", "dialogue") instance=ExtResource("10_6vnka")]
 curtains = NodePath("../../Group Curtains/Curtains")
+dialogue = NodePath("../Dialogue")
 
 [node name="Dialogue" parent="CanvasLayer" unique_id=998366939 instance=ExtResource("17_6vnka")]
 anchors_preset = 12

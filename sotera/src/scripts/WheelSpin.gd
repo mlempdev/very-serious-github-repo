@@ -65,7 +65,7 @@ func _process(delta: float) -> void:
 	$WheelTexture.material.set_shader_parameter("offset", offset);
 	$WheelValue.text = str(items[value_idx])
 
-func start_spinning():
+func start_spinning() -> void:
 	if state == WHEELSTATE.IDLE:
 		state = WHEELSTATE.SPINNING
 		spin_speed = min_speed # RandUtils.randf_range(min_speed, max_speed)

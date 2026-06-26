@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var curtains: CurtainSystem
+@export var dialogue: Dialogue
 
 var index: int = -1
 
@@ -34,5 +35,7 @@ func touch_down(index: int) -> void:
 	self.index = index
 
 func _perform_click() -> void:
+	if !dialogue.is_finished(): return
+	
 	if curtains.closed(): curtains.open_full()
 	elif curtains.opened(): curtains.close_full()

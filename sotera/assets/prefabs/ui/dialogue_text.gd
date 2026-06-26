@@ -11,16 +11,24 @@ var timer: float = 0.0
 var is_typing:bool = false
 var typing_speed:float = 0.05
 
+# cache text in progress to be shown
+# cached because there is option to skip/auto complete sentence by clicking on button
+var _show_text: PackedStringArray
+var _skip_show_text: bool # to break for loop which adds characters from outside
+var _char_track_index: int # to know how to finish text line from _show_text
+
 @onready var label: Label = $Label
+
+func _ready() -> void:
+	label.text = "" # reset placeholder text from Editor
+	_skip_show_text = false
 
 func _process(delta: float) -> void:
 	if state == UiTextState.NO_TEXT or is_typing:
 		return
 
-	timer -= delta
-
-	if timer <= 0.0:
-		_advance_line()
+	timer = max(timer - delta, 0.0)
+	if timer == 0.0: _advance_line()
 
 func _advance_line() -> void:
 	label.text = ""
@@ -44,14 +52,26 @@ func _get_current_line() -> Variant:
 
 func _show_line(line: String) -> void:
 	is_typing = true
-	var chars = line.replace('"',"").split()
-	for idx in chars:
-		label.text = label.text + idx
-		SoundPool.play_random_shuffled_sound(SoundPool.DIALOGUE_NOISES_STEVE)
-		await get_tree().create_timer(typing_speed).timeout
+	_show_text = line.replace('"',"").split()
+	
+	_char_track_index = 0
+	for idx in _show_text:
+		if _skip_show_text: 
+			_skip_show_text = false # reset
+			break # exit for loop from outside
+		
+		_char_track_index += 1 # outside loop has to finish text
+		_append_line_character(idx)
+
+		await get_tree().create_timer(typing_speed).timeout # wait to write next character
+	
 	timer = 0.5
 	is_typing = false
 
+func _append_line_character(c) -> void:
+		label.text = label.text + c
+		SoundPool.play_random_shuffled_sound(SoundPool.DIALOGUE_NOISES_STEVE)
+		
 func _divide_into_setence_chunks(v:String, max_characters):
 	v = v.replace('"',"")
 	var no_of_chars = int(len(v) / max_characters)
@@ -81,9 +101,11 @@ func _flat_map(arr:Array) -> Array[String]: # 2 level deep only
 
 func on_start_dialogue(dialogue: DialogueJSON, max_characters) -> void:
 	var dialogue_lines = dialogue.dialogue_lines.map(func(v):return _divide_into_setence_chunks(v,max_characters))
+	
 	var untyped_dialogues = _flat_map(dialogue_lines)
 	untyped_dialogues = untyped_dialogues.map(func(sentence):return sentence.strip_edges())
 	var dialogues:Array[String] = []
+	
 	for v in untyped_dialogues:
 		dialogues.append(str(v))
 	current_dialogue_lines = dialogues
@@ -107,8 +129,31 @@ func on_stop_dialogue() -> void:
 	current_line_idx = 0
 	timer = 0.0
 	speech_ended.emit()
+	
+func _input(e: InputEvent) -> void:
+	var action_skip_dialogue_line: bool = e is InputEventKey and e.keycode == KEY_SPACE and !e.pressed
+	if action_skip_dialogue_line: _skip_dialogue_line()
 
-func start_next_dialog():
+# 1 ... function tries to finish line
+# 2 ... if line finished, start new line
+func _skip_dialogue_line() -> void:
+	if state == UiTextState.NO_TEXT: return # if no dialogue go out
+	
+	_skip_show_text = true
+	
+	# ----------------------- fill text -----------------------------
+	var rn = range(_char_track_index + 1, _show_text.size())
+	for i in rn:
+		var idx = _show_text[i]
+		_append_line_character(idx)
+	# ----------------------- fill text -----------------------------
+	
+	# TODO add block_timer option (so timer do not count down to next character)
+
+func is_finished() -> bool:
+	return state == UiTextState.NO_TEXT
+	
+func start_next_dialog() -> void:
 	if Globals.Total_contracts == 0:
 		var dialogs = load("res://assets/narrative/dialogue/Scene_intro.tres")
 		on_start_dialogue(dialogs, 100)
