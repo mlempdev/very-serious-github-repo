@@ -68,6 +68,7 @@ func _physics_process(delta: float) -> void:
 func movement_animation():
 	if absf(velocity.x)<absf(velocity.y):
 		
+		
 		if velocity.y > 0:
 			animations.play("walk_down")
 		elif velocity.y < 0:
@@ -91,9 +92,10 @@ func spawn(spawnPos:Vector2,player:BulletHellPlayer)->void:
 	
 func takeDamage(damageToTake:int)->void:
 	hp -= damageToTake
-	SoundPool.play_random_shuffled_sound(SoundPool.ZOMBIE_GROWL)
+	SoundPool.play_random_sound(SoundPool.KNIFE_STAB)
 	if hp<=0:
 		destroy()
+		SoundPool.play_random_shuffled_sound(SoundPool.ZOMBIE_GROWL)
 	pass
 
 func isDisabled() -> bool:
@@ -113,6 +115,8 @@ func _on_attack_hitbox_body_entered(body: Node2D) -> void:
 			state = BHENEMYSTATE.ATTACKING
 			damagingPlayer = true
 			SoundPool.play_sound(SoundPool.ZOMBIE_BITE)
+			SoundPool.play_random_sound(SoundPool.AUDIENCE_LAUGH)
+			
 
 
 func _on_attack_hitbox_body_exited(body: Node2D) -> void:

@@ -72,3 +72,8 @@ func take_damage() -> void:
 		return
 	Events.lose_life.emit()
 	animation_player.play("hurt")
+
+func _on_animations_frame_changed():
+	if $Animations.animation in ["forwardrun", "leftrun", "rightrun", "backrun", "forwardrun_reverse", "leftrun_reverse", "rightrun_reverse", "backrun_reverse"]:
+		if $Animations.frame in [0, 4]:
+			SoundPool.play_sound(SoundPool.PLAYER_FOOTSTEP_STONE)

@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://bxvm1qmxyc60c" path="res://src/scripts/BulletHellGame/BulletHellEnemySpawner.gd" id="2_k22da"]
 [ext_resource type="PackedScene" uid="uid://djlcsqi5rdk0t" path="res://assets/prefabs/BulletHellGame/BulletHellEnemy.tscn" id="3_1tnea"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="4_g2uak"]
-[ext_resource type="PackedScene" uid="uid://dfac0y3pduyy7" path="res://assets/prefabs/contract.tscn" id="4_i37ik"]
-[ext_resource type="PackedScene" uid="uid://cfpfhc2bmrb7b" path="res://assets/prefabs/gui.tscn" id="4_sx2vv"]
+[ext_resource type="PackedScene" uid="uid://urcx0ou3hqip" path="res://assets/prefabs/contract.tscn" id="4_i37ik"]
+[ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="4_sx2vv"]
 [ext_resource type="PackedScene" uid="uid://c1b55tknnjmpp" path="res://assets/prefabs/BulletHellGame/bullet_hell_player.tscn" id="7_qr455"]
 [ext_resource type="PackedScene" uid="uid://dkn2kpahpr8ds" path="res://assets/prefabs/BulletHellGame/BulletHellGun.tscn" id="8_qr455"]
 
@@ -281,7 +281,6 @@ offset_bottom = 38.0
 position = Vector2(960, 616)
 motion_mode = 1
 gun = NodePath("BulletHellGun")
-iFrames = 3
 
 [node name="HurtBox" type="Area2D" parent="BulletHellPlayer" unique_id=412102748]
 collision_layer = 2

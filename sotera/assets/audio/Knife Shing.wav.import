@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://17wb7ci7rgg"
+path="res://.godot/imported/Knife Shing.wav-8b0c5988721eaaf1c6ee58392163c913.sample"
+
+[deps]
+
+source_file="res://assets/audio/Knife Shing.wav"
+dest_files=["res://.godot/imported/Knife Shing.wav-8b0c5988721eaaf1c6ee58392163c913.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

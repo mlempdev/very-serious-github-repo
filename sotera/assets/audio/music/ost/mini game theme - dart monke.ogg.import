@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://depaodj3cpxfd"
+path="res://.godot/imported/mini game theme - dart monke.ogg-44836514f2981eb8afbcc6ba241e6605.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/ost/mini game theme - dart monke.ogg"
+dest_files=["res://.godot/imported/mini game theme - dart monke.ogg-44836514f2981eb8afbcc6ba241e6605.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

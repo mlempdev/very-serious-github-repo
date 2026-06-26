@@ -363,3 +363,5 @@ position = Vector2(5, 77)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=317626445]
 libraries/ = SubResource("AnimationLibrary_rxje2")
+
+[connection signal="frame_changed" from="Animations" to="." method="_on_animations_frame_changed"]

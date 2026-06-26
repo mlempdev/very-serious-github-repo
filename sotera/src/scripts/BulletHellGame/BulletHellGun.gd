@@ -13,6 +13,7 @@ func shoot(mouse_pos: Vector2):
 	if fire_rate.is_stopped():
 		getBullet().shoot(mouse_pos)
 		fire_rate.start(1.0 / firerate)
+		SoundPool.play_sound(SoundPool.KNIFE_SHING)
 
 
 func getBullet() -> BulletHellBullet:

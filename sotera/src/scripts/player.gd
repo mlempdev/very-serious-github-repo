@@ -54,7 +54,6 @@ func _physics_process(_delta):
 		
 	move_and_slide()
 
-#frame perfect / footsteps
 func _on_animations_frame_changed():
 	if $Animations.animation in ["forwardrun", "leftrun", "rightrun", "backrun"]:
 		if $Animations.frame in [0, 4]:

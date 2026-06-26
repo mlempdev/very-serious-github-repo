@@ -27,6 +27,8 @@ func getNewEnemy()->BulletHellEnemy:
 	return new_enemy
 
 func onEnemyKilled(enemy:BulletHellEnemy)->void:
+	SoundPool.stop_sound(SoundPool.AUDIENCE_LAUGH_1, 5.0)
+	SoundPool.stop_sound(SoundPool.AUDIENCE_LAUGH_2, 5.0)
 	enemiesKilled+=1
 	if enemiesKilled==waves[currentWave]:
 		currentWave+=1
@@ -51,3 +53,4 @@ func spawnEnemy()->void:
 		getNewEnemy().spawn(spawnPos,player)
 		enemiesSpawned+=1
 		$SpawnCooldown.start()
+		SoundPool.play_random_sound(SoundPool.ZOMBIE_GROWL)

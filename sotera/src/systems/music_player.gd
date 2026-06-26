@@ -8,10 +8,11 @@ const _MIN_VOLUME_DB : float = -60.0
 const MAIN_THEME : AudioStream = preload("res://assets/audio/music/ost/main theme - Mayle96 (loop).ogg")
 const STAGE_MUSIC : AudioStream = preload("res://assets/audio/music/ost/main theme - dart monke (adapted).ogg")
 const MINIGAME : AudioStream = preload("res://assets/audio/music/ost/very serious noodle (adapted).mp3")
-const SCARY : AudioStream = preload("res://assets/audio/music/ost/mini game theme - dart monke.mp3")
+const SCARY : AudioStream = preload("res://assets/audio/music/ost/mini game theme - dart monke.ogg")
 const BULLET_THEME : AudioStream = preload("res://assets/audio/music/ost/Marcyiscool Boss Battle (adapted).ogg")
 const CREDITS_THEME : AudioStream = preload("res://assets/audio/music/ost/Marcyiscool Mini game D (adapted).ogg")
 const FINAL_BATTLE : AudioStream = preload("res://assets/audio/music/ost/Some bullshi (boss theme) - dart monke.mp3")
+const GAME_OVER : AudioStream = preload("res://assets/audio/music/ost/Cheesy Game Over.ogg")
 
 var _curr_idx : int = 0
 var _players : Array[AudioStreamPlayer]
