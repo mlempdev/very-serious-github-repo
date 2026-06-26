@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://bbqcbyvycwqrr"]
 
-[ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="1_8cy1c"]
+[ext_resource type="PackedScene" uid="uid://cfpfhc2bmrb7b" path="res://assets/prefabs/gui.tscn" id="1_8cy1c"]
 [ext_resource type="Texture2D" uid="uid://n3ucyq26j0qu" path="res://assets/raw/wheel-scene/stage.png" id="1_cooqm"]
 [ext_resource type="Script" uid="uid://fax1pcst4y2u" path="res://src/scripts/fortune_wheel_scene.gd" id="1_d7hmc"]
-[ext_resource type="PackedScene" uid="uid://hubowr5basua" path="res://assets/prefabs/Wheel.tscn" id="2_4arlo"]
 [ext_resource type="PackedScene" uid="uid://m03c8gghqx32" path="res://assets/prefabs/Steven.tscn" id="4_4fco3"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="6_4arlo"]
 [ext_resource type="PackedScene" uid="uid://ctimv56j7qqjo" path="res://assets/prefabs/lever.tscn" id="7_cooqm"]
-[ext_resource type="PackedScene" uid="uid://bwav05t3mcd2k" path="res://assets/prefabs/curtain_prefab.tscn" id="8_dsjn4"]
+[ext_resource type="PackedScene" uid="uid://dxv6xfjtybe7l" path="res://assets/prefabs/curtain_prefab.tscn" id="8_dsjn4"]
 [ext_resource type="PackedScene" uid="uid://c7kga4lmflwpr" path="res://assets/prefabs/ui/stage_player.tscn" id="9_8cy1c"]
 [ext_resource type="PackedScene" uid="uid://dmi2oqodqjn68" path="res://assets/prefabs/mini_game_tracker.tscn" id="11_cl5pl"]
 [ext_resource type="Script" uid="uid://bhqfew7feq5tr" path="res://src/scripts/MiniGameTracker.gd" id="12_wipld"]
@@ -29,13 +28,10 @@ position = Vector2(960.0001, 544)
 scale = Vector2(6.0027785, 6.0027785)
 texture = ExtResource("1_cooqm")
 
-[node name="Wheel" parent="." unique_id=1465385523 node_paths=PackedStringArray("curtains", "minigame_tracker") instance=ExtResource("2_4arlo")]
+[node name="Wheel" parent="." unique_id=1465385523]
 position = Vector2(961, 821)
-curtains = NodePath("../Curtains")
-minigame_tracker = NodePath("../MiniGameTracker")
 
 [node name="worldboundary" type="Node2D" parent="." unique_id=1162189176]
-visible = false
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="worldboundary" unique_id=133051340]
 

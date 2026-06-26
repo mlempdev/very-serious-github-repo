@@ -1,16 +1,109 @@
-[gd_scene format=3 uid="uid://b1y8jb2ie62s0"]
+[gd_scene format=3 uid="uid://cgbg24wmskti1"]
 
 [ext_resource type="Script" uid="uid://ca7ugi6emcwu" path="res://src/scripts/final_boss.gd" id="1_6ag57"]
 [ext_resource type="Script" uid="uid://d2qode13dvwob" path="res://src/scripts/question.gd" id="2_k525x"]
 
-[sub_resource type="Resource" id="Resource_6ag57"]
+[sub_resource type="Resource" id="Resource_k525x"]
 script = ExtResource("2_k525x")
-question = "What is your name?"
-option_a = "max"
-option_b = "divid"
-option_c = "skf"
-option_d = "bk"
+question = "1. In a deal with the devil, what is usually the hidden cost?"
+option_a = "Taxes"
+option_b = "Your soul"
+option_c = "Your furniture"
+option_d = "Interest rates"
+answer = 1
 metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_jil5c"]
+script = ExtResource("2_k525x")
+question = "What does a spinning wheel represent in many games of chance?"
+option_a = "Skill"
+option_b = "Fate"
+option_c = "Intelligence"
+option_d = "Fairness"
+answer = 1
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_vkukm"]
+script = ExtResource("2_k525x")
+question = "Traditionally, a contestant risks what during a final wager?"
+option_a = "Their turn"
+option_b = "Their dignity"
+option_c = "Their accumulated winnings"
+option_d = "Their microphone"
+answer = 2
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_8xf35"]
+script = ExtResource("2_k525x")
+question = "A lightning round is designed to test which quality?"
+option_a = "Patience"
+option_b = "Speed"
+option_c = "Strength"
+option_d = "Luck"
+answer = 1
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_3etcb"]
+script = ExtResource("2_k525x")
+question = "When two contestants are tied, a tiebreaker exists to determine what?"
+option_a = "The host's favorite player"
+option_b = "The audience score"
+option_c = "The winner"
+option_d = "The next sponsor"
+answer = 2
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_1hrp2"]
+script = ExtResource("2_k525x")
+question = "What is an audience expected to do during a game show?"
+option_a = "Remain silent"
+option_b = "Compete directly"
+option_c = "Read the rules"
+option_d = "React and participate"
+answer = 3
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_u6exl"]
+script = ExtResource("2_k525x")
+question = "The phrase 'double or nothing' means a contestant risks what they have for whatreward?"
+option_a = "Half as much"
+option_b = "No reward at all"
+option_c = "Twice the reward"
+option_d = "A second turn"
+answer = 2
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_klscq"]
+script = ExtResource("2_k525x")
+question = "Casinos and game operators make money because they possess what?"
+option_a = "A statistical advantage"
+option_b = "Better luck"
+option_c = "More players"
+option_d = "Faster dealers"
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_05l7r"]
+script = ExtResource("2_k525x")
+question = "What does it mean to 'lock in' an answer?"
+option_a = "To hide it"
+option_b = "To change it later"
+option_c = "To make it final"
+option_d = "To wager points"
+answer = 2
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_mha1t"]
+script = ExtResource("2_k525x")
+question = "What is the grand prize of Wheel of Damnation?"
+option_a = "Wealth"
+option_b = "Fame"
+option_c = "Freedom"
+option_d = "Survival"
+answer = 3
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loflm"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oag77"]
 bg_color = Color(0.6906835, 0.15478319, 0, 1)
@@ -38,7 +131,7 @@ boss_max_health = 100
 player_max_health = 10
 boss_damage = 1
 player_damage = 10
-questions = Array[ExtResource("2_k525x")]([SubResource("Resource_6ag57")])
+questions = Array[ExtResource("2_k525x")]([SubResource("Resource_k525x"), SubResource("Resource_jil5c"), SubResource("Resource_vkukm"), SubResource("Resource_8xf35"), SubResource("Resource_3etcb"), SubResource("Resource_1hrp2"), SubResource("Resource_u6exl"), SubResource("Resource_klscq"), SubResource("Resource_05l7r"), SubResource("Resource_mha1t")])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1195852189]
 layout_mode = 1
@@ -71,16 +164,20 @@ layout_mode = 2
 [node name="OptionC" type="Button" parent="Options/VBoxContainer2" unique_id=1841641238]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+layout_direction = 2
 focus_neighbor_left = NodePath("../../VBoxContainer/OptionA")
 focus_neighbor_bottom = NodePath("../OptionD")
 text = "c"
+alignment = 0
 
 [node name="OptionD" type="Button" parent="Options/VBoxContainer2" unique_id=794941133]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+layout_direction = 2
 focus_neighbor_left = NodePath("../../VBoxContainer/OptionB")
 focus_neighbor_top = NodePath("../OptionC")
 text = "d"
+alignment = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options" unique_id=2066377264]
 layout_mode = 2
@@ -88,18 +185,23 @@ layout_mode = 2
 [node name="OptionA" type="Button" parent="Options/VBoxContainer" unique_id=653235471]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+layout_direction = 2
 focus_neighbor_right = NodePath("../../VBoxContainer2/OptionC")
 focus_neighbor_bottom = NodePath("../OptionB")
 text = "a"
+alignment = 0
 
 [node name="OptionB" type="Button" parent="Options/VBoxContainer" unique_id=1667687650]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+layout_direction = 2
 focus_neighbor_top = NodePath("../OptionA")
 focus_neighbor_right = NodePath("../../VBoxContainer2/OptionD")
 text = "b"
+alignment = 0
 
 [node name="QuestionLabel" type="Label" parent="." unique_id=1699864311]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -112,6 +214,11 @@ offset_right = 0.5
 offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -100)
+theme_override_styles/normal = SubResource("StyleBoxFlat_loflm")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BossHealthBar" type="ProgressBar" parent="." unique_id=1510013361]
 layout_mode = 1

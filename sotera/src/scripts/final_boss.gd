@@ -52,6 +52,8 @@ func _on_option_button_pressed(answer: Answers) -> void:
 		on_right_answer()
 	else:
 		on_wrong_question()
+	
+	move_to_next_question()
 
 
 func display_question() -> void:
