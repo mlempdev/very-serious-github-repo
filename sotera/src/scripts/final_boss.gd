@@ -12,15 +12,12 @@ enum Answers {A, B ,C, D}
 
 
 @export var boss_max_health: int
-@export var player_max_health: int 
-@export var boss_damage: int 
 @export var player_damage: int
 @export var questions: Array[Question]
 
 var question_index: int = 0
 var current_question: Question
 var num_of_questions: int = 0
-var player_health: int 
 var boss_health: int
 
 func _ready() -> void:
@@ -39,13 +36,11 @@ func _ready() -> void:
 
 
 func set_health_bars() -> void:
-	player_health = player_max_health
 	boss_health = boss_max_health
 
 	boss_health_bar.max_value = boss_max_health
 	boss_health_bar.value = boss_health
-	player_health_bar.max_value = player_max_health
-	player_health_bar.value = player_health
+
 
 func _on_option_button_pressed(answer: Answers) -> void:
 	if answer == current_question.answer:
@@ -67,7 +62,6 @@ func display_question() -> void:
 
 func move_to_next_question() -> void:
 	if question_index >= num_of_questions -1:
-		on_quiz_end()
 		return
 	question_index += 1
 	display_question()
@@ -75,10 +69,16 @@ func move_to_next_question() -> void:
 func on_right_answer() -> void:
 	boss_health -= player_damage
 	boss_health_bar.value = boss_health
+	if boss_health <= 0:
+		on_boss_death()
 
 func on_wrong_question() -> void:
-	player_health -= boss_damage
-	player_health_bar.value = player_health
+	Events.lose_life.emit()
+	if Globals.Lives <= 0:
+		on_player_death()
 
-func on_quiz_end() -> void:
+func on_boss_death() -> void:
 	pass
+
+func on_player_death() -> void:
+	Events.game_over.emit()

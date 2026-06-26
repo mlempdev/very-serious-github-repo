@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ca7ugi6emcwu" path="res://src/scripts/final_boss.gd" id="1_6ag57"]
 [ext_resource type="Script" uid="uid://d2qode13dvwob" path="res://src/scripts/question.gd" id="2_k525x"]
+[ext_resource type="PackedScene" uid="uid://cfpfhc2bmrb7b" path="res://assets/prefabs/gui.tscn" id="3_loflm"]
 
 [sub_resource type="Resource" id="Resource_k525x"]
 script = ExtResource("2_k525x")
@@ -127,10 +128,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6ag57")
-boss_max_health = 100
-player_max_health = 10
-boss_damage = 1
-player_damage = 10
+boss_max_health = 7
+player_damage = 1
 questions = Array[ExtResource("2_k525x")]([SubResource("Resource_k525x"), SubResource("Resource_jil5c"), SubResource("Resource_vkukm"), SubResource("Resource_8xf35"), SubResource("Resource_3etcb"), SubResource("Resource_1hrp2"), SubResource("Resource_u6exl"), SubResource("Resource_klscq"), SubResource("Resource_05l7r"), SubResource("Resource_mha1t")])
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1195852189]
@@ -242,3 +241,6 @@ offset_top = 1019.0
 offset_right = 1102.0
 offset_bottom = 1041.0
 show_percentage = false
+
+[node name="Control" parent="." unique_id=233616670 instance=ExtResource("3_loflm")]
+layout_mode = 0
