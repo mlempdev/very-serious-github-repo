@@ -89,8 +89,6 @@ func check_if_curtains_are_closed() -> void:
 	
 	state = WHEELSTATE.COMPLETE
 	
-	SoundPool.play_sound(SoundPool.AUDIENCE_CHEER)
-	
 func stop_spinning() -> void:
 	if state == WHEELSTATE.SPINNING: 
 		var winning_game = items[value_idx]
