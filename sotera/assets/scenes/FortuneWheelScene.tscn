@@ -227,4 +227,5 @@ game_icons = {
 script = ExtResource("15_1cyg4")
 layers = [NodePath("../../Group Curtains/Curtains")]
 
+[connection signal="lever_pulled" from="World/FG/Lever" to="World/FG/Wheel" method="_on_lever_lever_pulled"]
 [connection signal="speech_ended" from="CanvasLayer/Dialogue" to="World/FG/Lever" method="_on_dialogue_text_speech_ended"]
