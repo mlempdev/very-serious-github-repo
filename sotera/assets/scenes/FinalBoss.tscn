@@ -383,6 +383,11 @@ script = ExtResource("7_8xf35")
 sprite_2d = NodePath("../BossAnimatedSprite")
 metadata/_custom_type_script = "uid://buoih526378b8"
 
+[node name="BossHandFlashComponent" type="Node" parent="." unique_id=816543336 node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("7_8xf35")
+sprite_2d = NodePath("../McBossHand")
+metadata/_custom_type_script = "uid://buoih526378b8"
+
 [node name="PlayerFlashComponent" type="Node" parent="." unique_id=117863802 node_paths=PackedStringArray("sprite_2d")]
 script = ExtResource("7_8xf35")
 sprite_2d = NodePath("../PlayerAnimatedSprite")
