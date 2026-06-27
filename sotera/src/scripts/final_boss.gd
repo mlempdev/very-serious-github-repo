@@ -9,6 +9,7 @@ enum Answers {A, B ,C, D}
 @onready var question_label: Label = $QuestionLabel
 @onready var boss_health_bar: ProgressBar = $BossHealthBar
 @onready var boss_flash_component: FlashComponent = $BossFlashComponent
+@onready var boss_hand_flash_component: FlashComponent = $BossHandFlashComponent
 @onready var player_flash_component: FlashComponent = $PlayerFlashComponent
 @onready var shake_camera_2d: Camera2D = $ShakeCamera2D
 @onready var gui: Control = $UI/GUI
@@ -88,6 +89,7 @@ func on_right_answer() -> void:
 	boss_health -= player_damage
 	boss_health_bar.value = boss_health
 	boss_flash_component._flash()
+	boss_hand_flash_component._flash()
 	SoundPool.play_sound(SoundPool.UI_CORRECT)
 	
 	if boss_health <= 0:
