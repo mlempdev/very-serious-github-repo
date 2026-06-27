@@ -15,6 +15,7 @@ func _ready() -> void:
 func take_damage() -> void:
 	Lives -= 1
 	if Lives == 0:
+		gameover = true
 		SoundPool.play_sound(SoundPool.MINIGAME_FAIL)
 		Events.change_level("res://assets/scenes/FortuneWheelScene.tscn")
 

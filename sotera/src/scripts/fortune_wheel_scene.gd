@@ -39,6 +39,9 @@ func _ready() -> void:
 	if Globals.Total_contracts > 0:
 		SoundPool.play_sound(SoundPool.AUDIENCE_CHEER)
 		
+	if Globals.gameover:
+		start_game_over()
+		
 func _process(delta: float) -> void:
 	match _game_state:
 		GameState.NORMAL: pass
