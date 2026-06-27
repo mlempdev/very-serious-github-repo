@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://chi4xu34xyo8u"]
+[gd_scene format=3 uid="uid://c5at5rpwhdlw7"]
 
 [ext_resource type="Script" uid="uid://fax1pcst4y2u" path="res://src/scripts/fortune_wheel_scene.gd" id="1_ux28w"]
 [ext_resource type="Texture2D" uid="uid://deaci7ovohd45" path="res://assets/raw/wheel-scene/stage_empty.png" id="2_ux28w"]
@@ -30,12 +30,6 @@ metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=619906068]
 
-[node name="Dialogue" parent="CanvasLayer" unique_id=998366939 instance=ExtResource("16_hgyh4")]
-offset_left = 3.0
-offset_top = -133.0
-offset_right = -894.33325
-offset_bottom = -75.0
-
 [node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("8_c60e0")]
 
 [node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("9_71m4y")]
@@ -48,4 +42,8 @@ game_icons = {
 "scary": ExtResource("15_fiq2x")
 }
 
-[connection signal="speech_ended" from="CanvasLayer/Dialogue" to="." method="_on_dialogue_speech_ended"]
+[node name="DialogueText" parent="." unique_id=998366939 instance=ExtResource("16_hgyh4")]
+offset_left = 824.0
+offset_top = 316.0
+offset_right = -894.33325
+offset_bottom = -668.0

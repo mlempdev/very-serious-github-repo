@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://buoih526378b8" path="res://src/scripts/flash_componet.gd" id="7_8xf35"]
 [ext_resource type="Texture2D" uid="uid://dswaovw6ecers" path="res://assets/images/mc_boss_hand.png" id="10_u6exl"]
 [ext_resource type="Script" uid="uid://do3uhuvt6gysq" path="res://assets/scenes/screen_shake.gd" id="11_klscq"]
+[ext_resource type="PackedScene" uid="uid://bwav05t3mcd2k" path="res://assets/prefabs/curtain_prefab.tscn" id="12_05l7r"]
 
 [sub_resource type="Resource" id="Resource_k525x"]
 script = ExtResource("2_k525x")
@@ -411,6 +412,23 @@ texture = ExtResource("10_u6exl")
 [node name="ShakeCamera2D" type="Camera2D" parent="." unique_id=1132796550]
 position = Vector2(960, 540)
 script = ExtResource("11_klscq")
+
+[node name="Curtains" parent="." unique_id=1568423794 instance=ExtResource("12_05l7r")]
+
+[node name="The end" type="Label" parent="." unique_id=1483056327]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -207.5
+offset_bottom = 207.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 150
+text = "The End
+Thank you for playing!"
+horizontal_alignment = 1
 
 [connection signal="focus_entered" from="Options" to="." method="_on_options_focus_entered"]
 [connection signal="mouse_entered" from="Options/VBoxContainer" to="." method="_on_v_box_container_mouse_entered"]

@@ -31,9 +31,9 @@ func _pull() -> void:
 		if lever_sprite_animation.frame_progress == 1:
 			lever_sprite_animation.play_backwards("switch_left")
 
-func _input(e: InputEvent) -> void:
-	var is_action_pull: bool = e.is_action_pressed("interact") && player_in_area && _pullable
-	if is_action_pull: _pull()
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed("interact") && player_in_area && _pullable:
+		_pull()
 
 func enable() -> void:
 	_pullable = true

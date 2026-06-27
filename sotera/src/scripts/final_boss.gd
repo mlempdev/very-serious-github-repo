@@ -28,6 +28,10 @@ func _ready() -> void:
 		return
 	questions.shuffle()
 	
+	$Curtains.open_full()
+	$Curtains.hide()
+	$"The end".hide()
+	
 	option_a.grab_focus()
 	var buttons = [option_a, option_b, option_c, option_d]
 	for button in buttons:
@@ -101,6 +105,9 @@ func on_wrong_question() -> void:
 func on_boss_death() -> void:
 	MusicPlayer.stop_track(1.0)
 	SoundPool.play_sound(SoundPool.BOSS_DEATH)
+	$Curtains.show()
+	$Curtains.close_full()
+	$"The end".show()
 
 func on_player_death() -> void:
 	Events.game_over.emit()

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogueJSON" format=3 uid="uid://3fuorxeutryr"]
+
+[ext_resource type="Script" uid="uid://bd6vca075g71m" path="res://assets/prefabs/ui/Dialogue_JSON.gd" id="1_i7boa"]
+
+[resource]
+script = ExtResource("1_i7boa")
+dialogue_lines = Array[String](["ONE Contract?!", "HA! It'll take more than that to earn your soul back", "Let's see her go for another spin!"])
+metadata/_custom_type_script = "uid://bd6vca075g71m"
