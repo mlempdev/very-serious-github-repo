@@ -339,17 +339,18 @@ _data = {
 }
 
 [node name="BulletHellPlayer" type="CharacterBody2D" unique_id=2026353861]
+y_sort_enabled = true
 scale = Vector2(8, 8)
 collision_layer = 2
 script = ExtResource("1_dpkp1")
 
 [node name="DustVFX" parent="." unique_id=2025310674 instance=ExtResource("2_5cus4")]
 show_behind_parent = true
-position = Vector2(0, 80)
+position = Vector2(0, 7)
 scale = Vector2(0.99999976, 0.99999976)
 
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=998877211]
-z_index = 11
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_dft1h")
 animation = &"rightrun"
 
@@ -359,7 +360,7 @@ scale = Vector2(10, 10)
 shape = SubResource("CapsuleShape2D_obn8q")
 
 [node name="Dust" parent="." unique_id=1484705499 instance=ExtResource("2_5cus4")]
-position = Vector2(5, 77)
+position = Vector2(0, 7)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=317626445]
 libraries/ = SubResource("AnimationLibrary_rxje2")

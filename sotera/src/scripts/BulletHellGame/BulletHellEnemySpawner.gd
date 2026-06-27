@@ -43,7 +43,7 @@ func onEnemyKilled(enemy:BulletHellEnemy)->void:
 func startWave()->void:
 	enemiesSpawned = 0 
 	enemiesKilled = 0
-	$WaveCounter.text = "Wave: "+ str(currentWave+1)
+	%Wave_Counter.text = "Wave: "+ str(currentWave+1)
 	$SpawnCooldown.start()
 
 func spawnEnemy()->void:

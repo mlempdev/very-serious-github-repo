@@ -12,7 +12,7 @@ func _process_touch(event) -> void:
 		action()
 		
 func _process_key(event) -> void:
-	if event is InputEventKey and event.keycode == KEY_SPACE and !event.pressed:
+	if event is InputEventKey and event.keycode == KEY_ESCAPE and !event.pressed:
 		action()
 			
 func action() -> void:

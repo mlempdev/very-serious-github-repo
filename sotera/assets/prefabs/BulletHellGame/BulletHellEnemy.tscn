@@ -172,6 +172,7 @@ height = 38.84283
 radius = 30.0
 
 [node name="BulletHellEnemy" type="CharacterBody2D" unique_id=728110053 node_paths=PackedStringArray("melee", "navAgent")]
+z_index = 1
 y_sort_enabled = true
 collision_layer = 4
 motion_mode = 1
@@ -183,6 +184,7 @@ maxHp = 20
 damage = 5
 
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=1307996040]
+y_sort_enabled = true
 position = Vector2(-2.3841858e-07, 0)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_avvpw")
@@ -194,6 +196,8 @@ position = Vector2(0, 26)
 shape = SubResource("CircleShape2D_4dv3d")
 
 [node name="Navigation" type="NavigationAgent2D" parent="." unique_id=300488299]
+avoidance_enabled = true
+radius = 25.0
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=454981233]
 collision_layer = 4
@@ -207,12 +211,13 @@ shape = SubResource("CapsuleShape2D_n048l")
 [node name="MeleeHitbox" type="Area2D" parent="Melee" unique_id=663495280]
 position = Vector2(36, -49)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 6
 
 [node name="MeleeShape" type="CollisionShape2D" parent="Melee/MeleeHitbox" unique_id=1488588044]
 position = Vector2(-26, 49)
 shape = SubResource("CircleShape2D_wyrgb")
 
+[connection signal="velocity_computed" from="Navigation" to="." method="_on_navigation_velocity_computed"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Melee/MeleeHitbox" to="." method="_on_attack_hitbox_body_entered"]
 [connection signal="body_exited" from="Melee/MeleeHitbox" to="." method="_on_attack_hitbox_body_exited"]

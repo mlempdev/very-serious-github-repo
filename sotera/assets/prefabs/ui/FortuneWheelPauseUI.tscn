@@ -23,6 +23,6 @@ offset_right = 1920.0
 offset_bottom = 812.0
 theme_override_colors/font_color = Color(0.81960785, 0.8117647, 0.5254902, 1)
 theme_override_font_sizes/font_size = 48
-text = "<press space or click>"
+text = "<press esc or click>"
 horizontal_alignment = 1
 script = ExtResource("2_ajsso")

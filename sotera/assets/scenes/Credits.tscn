@@ -64,14 +64,20 @@ theme_override_font_sizes/font_size = 236
 horizontal_alignment = 1
 
 [node name="Space To Return" type="Label" parent="Control" unique_id=1057916012]
-layout_mode = 0
-offset_left = 686.0
-offset_top = 1003.0
-offset_right = 1213.0
-offset_bottom = 1054.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -51.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_colors/font_color = Color(0.81960785, 0.8117647, 0.5254902, 1)
 theme_override_font_sizes/font_size = 48
-text = "<press space to return>"
+text = "<press esc to return>"
+horizontal_alignment = 1
 
 [node name="CRT" parent="Control" unique_id=719073563 instance=ExtResource("4_khlcu")]
 layout_mode = 1

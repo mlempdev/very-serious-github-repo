@@ -20,6 +20,14 @@ var jumpscare_active: bool = false
 func _ready() -> void:
 	MusicPlayer.play_track(MusicPlayer.SCARY, 0.5, 0.0, -3.0)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
+	Events.on_minigame_end.connect(func(): visual_timer_anim.stop())
+	visual_timer_anim.animation_finished.connect(
+		func(anim_name: StringName):
+			if anim_name == &"gradual_dim":
+				trigger_jumpscare()
+			)
+	visual_timer_anim.play("gradual_dim")
 
 	_queue_next_ambiance()
 
@@ -70,8 +78,10 @@ func trigger_jumpscare():
 	await static_anim.animation_finished
 	
 	# Damage
-	Globals.take_damage()
-	
+	Events.lose_life.emit()
+	if Globals.Lives <= 0:
+		return
+		
 	# Reset player state and level
 	player.visible = true
 	player.process_mode = Node.PROCESS_MODE_INHERIT
@@ -81,6 +91,7 @@ func trigger_jumpscare():
 	darkness.show()
 	static_anim.play("RESET")
 	timer.start()
+	visual_timer_anim.play("gradual_dim")
 
 	_queue_next_ambiance()
 

@@ -2,14 +2,16 @@ extends Control
 class_name Dialogue
 
 signal speech_ended
-enum UiTextState { SHOWTEXT, NO_TEXT }
+signal speech_started
+
+enum UiTextState {SHOWTEXT, NO_TEXT}
 
 var state: UiTextState = UiTextState.NO_TEXT
 var current_dialogue_lines: Array[String] = []
 var current_line_idx: int = 0
 var timer: float = 0.0
-var is_typing:bool = false
-var typing_speed:float = 0.05
+var is_typing: bool = false
+var typing_speed: float = 0.05
 
 # cache text in progress to be shown
 # cached because there is option to skip/auto complete sentence by clicking on button
@@ -52,11 +54,11 @@ func _get_current_line() -> Variant:
 
 func _show_line(line: String) -> void:
 	is_typing = true
-	_show_text = line.replace('"',"").split()
+	_show_text = line.replace('"', "").split()
 	
 	_char_track_index = 0
 	for idx in _show_text:
-		if _skip_show_text: 
+		if _skip_show_text:
 			_skip_show_text = false # reset
 			break # exit for loop from outside
 		
@@ -69,18 +71,18 @@ func _show_line(line: String) -> void:
 	is_typing = false
 
 func _append_line_character(c) -> void:
-		label.text = label.text + c
-		SoundPool.play_random_shuffled_sound(SoundPool.DIALOGUE_NOISES_STEVE)
+	label.text = label.text + c
+	SoundPool.play_random_shuffled_sound(SoundPool.DIALOGUE_NOISES_STEVE)
 		
-func _divide_into_setence_chunks(v:String, max_characters):
-	v = v.replace('"',"")
+func _divide_into_setence_chunks(v: String, max_characters):
+	v = v.replace('"', "")
 	var no_of_chars = int(len(v) / max_characters)
-	if no_of_chars == 0: 
+	if no_of_chars == 0:
 		return [v]
 	else:
 		var regex = RegEx.new()
 		regex.compile("[^.!]+(?:[.!]+)?")
-		var sentences = regex.search_all(v).map(func(val):return val.get_string())
+		var sentences = regex.search_all(v).map(func(val): return val.get_string())
 		var new_sentences = [""]
 		var current_idx = 0
 		for sentence in sentences:
@@ -92,19 +94,19 @@ func _divide_into_setence_chunks(v:String, max_characters):
 				current_idx += 1
 		return new_sentences
 
-func _flat_map(arr:Array) -> Array[String]: # 2 level deep only
-	var flat_arr:Array[String] = []
+func _flat_map(arr: Array) -> Array[String]: # 2 level deep only
+	var flat_arr: Array[String] = []
 	for nested_arr in arr:
 		for v in nested_arr:
 			flat_arr.append(v)
 	return flat_arr
 
 func on_start_dialogue(dialogue: DialogueJSON, max_characters) -> void:
-	var dialogue_lines = dialogue.dialogue_lines.map(func(v):return _divide_into_setence_chunks(v,max_characters))
+	var dialogue_lines = dialogue.dialogue_lines.map(func(v): return _divide_into_setence_chunks(v, max_characters))
 	
 	var untyped_dialogues = _flat_map(dialogue_lines)
-	untyped_dialogues = untyped_dialogues.map(func(sentence):return sentence.strip_edges())
-	var dialogues:Array[String] = []
+	untyped_dialogues = untyped_dialogues.map(func(sentence): return sentence.strip_edges())
+	var dialogues: Array[String] = []
 	
 	for v in untyped_dialogues:
 		dialogues.append(str(v))
@@ -157,7 +159,20 @@ func start_next_dialog() -> void:
 	if Globals.Total_contracts == 0:
 		var dialogs = load("res://assets/narrative/dialogue/Scene_intro.tres")
 		on_start_dialogue(dialogs, 100)
+		speech_started.emit()
 	elif Globals.Total_contracts == 1:
-		# plays after first completed first mini-game
-		pass
-	#elif Globals.Total_contracts == 2:
+		var dialogs = load("res://assets/narrative/dialogue/one_contract.tres")
+		on_start_dialogue(dialogs, 100)
+		speech_started.emit()
+	elif Globals.Total_contracts == 2:
+		var dialogs = load("res://assets/narrative/dialogue/two_contract.tres")
+		on_start_dialogue(dialogs, 100)
+		speech_started.emit()
+	elif Globals.Total_contracts == 3:
+		var dialogs = load("res://assets/narrative/dialogue/boss_intro.tres")
+		on_start_dialogue(dialogs, 100)
+		speech_started.emit()
+
+	# # dirty fix
+	# if Globals.Total_contracts != 0:
+	# 	on_stop_dialogue()

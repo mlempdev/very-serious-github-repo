@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ca7ugi6emcwu" path="res://src/scripts/final_boss.gd" id="1_6ag57"]
 [ext_resource type="Script" uid="uid://d2qode13dvwob" path="res://src/scripts/question.gd" id="2_k525x"]
 [ext_resource type="Texture2D" uid="uid://dt7idby6ioc1h" path="res://assets/images/12.png" id="3_1hrp2"]
-[ext_resource type="PackedScene" uid="uid://cfpfhc2bmrb7b" path="res://assets/prefabs/gui.tscn" id="3_loflm"]
+[ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="3_loflm"]
 [ext_resource type="Texture2D" uid="uid://dw07aj3turlb" path="res://assets/raw/MC_platformer_spritesheet (2).png" id="5_jil5c"]
 [ext_resource type="Theme" uid="uid://o5t7jr4vdtem" path="res://assets/prefabs/ui/option_button_theme.tres" id="5_u6exl"]
 [ext_resource type="Texture2D" uid="uid://b4meiyl3qtq4d" path="res://assets/raw/boss_hair_anim5-ezgif.com-gif-to-sprite-converter (1).png" id="5_vkukm"]
@@ -11,10 +11,11 @@
 [ext_resource type="Script" uid="uid://buoih526378b8" path="res://src/scripts/flash_componet.gd" id="7_8xf35"]
 [ext_resource type="Texture2D" uid="uid://dswaovw6ecers" path="res://assets/images/mc_boss_hand.png" id="10_u6exl"]
 [ext_resource type="Script" uid="uid://do3uhuvt6gysq" path="res://assets/scenes/screen_shake.gd" id="11_klscq"]
+[ext_resource type="PackedScene" uid="uid://bwav05t3mcd2k" path="res://assets/prefabs/curtain_prefab.tscn" id="12_05l7r"]
 
 [sub_resource type="Resource" id="Resource_k525x"]
 script = ExtResource("2_k525x")
-question = "1. In a deal with the devil, what is usually the hidden cost?"
+question = "In a deal with the devil, what is usually the hidden cost?"
 option_a = "Taxes"
 option_b = "Your soul"
 option_c = "Your furniture"
@@ -62,29 +63,61 @@ option_d = "The next sponsor"
 answer = 2
 metadata/_custom_type_script = "uid://d2qode13dvwob"
 
-[sub_resource type="Resource" id="Resource_1hrp2"]
-script = ExtResource("2_k525x")
-metadata/_custom_type_script = "uid://d2qode13dvwob"
-
-[sub_resource type="Resource" id="Resource_u6exl"]
-script = ExtResource("2_k525x")
-metadata/_custom_type_script = "uid://d2qode13dvwob"
-
 [sub_resource type="Resource" id="Resource_klscq"]
 script = ExtResource("2_k525x")
+question = "What is an audience expected to do during a game show?"
+option_a = "Remain silent"
+option_b = "Compete directly"
+option_c = "Read the rules"
+option_d = "React and participate"
+answer = 3
 metadata/_custom_type_script = "uid://d2qode13dvwob"
 
 [sub_resource type="Resource" id="Resource_05l7r"]
 script = ExtResource("2_k525x")
+question = "The phrase 'double or nothing' means a contestant risks what they have for what reward?"
+option_a = "Half as much"
+option_b = "No reward at all"
+option_c = "Twice the reward"
+option_d = "A second turn"
+answer = 2
 metadata/_custom_type_script = "uid://d2qode13dvwob"
 
 [sub_resource type="Resource" id="Resource_mha1t"]
 script = ExtResource("2_k525x")
+question = "Casinos and game operators make money because they possess what?"
+option_a = "A statistical advantage"
+option_b = "Better luck"
+option_c = "More players"
+option_d = "Faster dealers"
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_e4jb7"]
+script = ExtResource("2_k525x")
+question = "What does it mean to 'lock in' an answer?"
+option_a = "To hide it"
+option_b = "To change it later"
+option_c = "To make it final"
+option_d = "To wager points"
+answer = 2
+metadata/_custom_type_script = "uid://d2qode13dvwob"
+
+[sub_resource type="Resource" id="Resource_xkmi6"]
+script = ExtResource("2_k525x")
+question = "What is the grand prize of Wheel of Damnation?"
+option_a = "Wealth"
+option_b = "Fame"
+option_c = "Freedom"
 option_d = "Survival"
+answer = 3
 metadata/_custom_type_script = "uid://d2qode13dvwob"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_loflm"]
 bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 3.0
+expand_margin_top = 8.0
+expand_margin_right = 3.0
+expand_margin_bottom = 8.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vkukm"]
 atlas = ExtResource("5_jil5c")
@@ -225,7 +258,7 @@ layout_direction = 2
 script = ExtResource("1_6ag57")
 boss_max_health = 5
 player_damage = 1
-questions = Array[ExtResource("2_k525x")]([SubResource("Resource_k525x"), SubResource("Resource_jil5c"), SubResource("Resource_vkukm"), SubResource("Resource_8xf35"), SubResource("Resource_3etcb"), SubResource("Resource_1hrp2"), SubResource("Resource_u6exl"), SubResource("Resource_klscq"), SubResource("Resource_05l7r"), SubResource("Resource_mha1t")])
+questions = Array[ExtResource("2_k525x")]([SubResource("Resource_k525x"), SubResource("Resource_jil5c"), SubResource("Resource_vkukm"), SubResource("Resource_8xf35"), SubResource("Resource_3etcb"), SubResource("Resource_klscq"), SubResource("Resource_05l7r"), SubResource("Resource_mha1t"), SubResource("Resource_e4jb7"), SubResource("Resource_xkmi6")])
 
 [node name="12" type="Sprite2D" parent="." unique_id=1530179560]
 position = Vector2(960.00006, 540)
@@ -249,75 +282,90 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 186.0
+offset_left = 143.0
 offset_top = -52.0
-offset_right = 686.0
+offset_right = 693.0
 offset_bottom = 52.0
 grow_vertical = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options" unique_id=2066377264]
 layout_mode = 2
 
 [node name="OptionA" type="Button" parent="Options/VBoxContainer" unique_id=653235471]
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(275, 50)
+custom_maximum_size = Vector2(275, -1)
 layout_mode = 2
 layout_direction = 2
 focus_neighbor_right = NodePath("../../VBoxContainer2/OptionC")
 focus_neighbor_bottom = NodePath("../OptionB")
 theme = ExtResource("5_u6exl")
 theme_override_fonts/font = ExtResource("6_klscq")
+theme_override_font_sizes/font_size = 20
 text = "a"
 alignment = 0
+autowrap_mode = 2
 
 [node name="OptionB" type="Button" parent="Options/VBoxContainer" unique_id=1667687650]
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(275, 50)
+custom_maximum_size = Vector2(275, -1)
 layout_mode = 2
 layout_direction = 2
 focus_neighbor_top = NodePath("../OptionA")
 focus_neighbor_right = NodePath("../../VBoxContainer2/OptionD")
+theme_override_font_sizes/font_size = 20
 text = "b"
 alignment = 0
+autowrap_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Options" unique_id=1693781074]
 layout_mode = 2
 
 [node name="OptionC" type="Button" parent="Options/VBoxContainer2" unique_id=1841641238]
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(275, 50)
+custom_maximum_size = Vector2(275, -1)
 layout_mode = 2
 layout_direction = 2
 focus_neighbor_left = NodePath("../../VBoxContainer/OptionA")
 focus_neighbor_bottom = NodePath("../OptionD")
+theme_override_font_sizes/font_size = 20
 text = "c"
 alignment = 0
+autowrap_mode = 2
 
 [node name="OptionD" type="Button" parent="Options/VBoxContainer2" unique_id=794941133]
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(275, 50)
+custom_maximum_size = Vector2(275, -1)
 layout_mode = 2
 layout_direction = 2
 focus_neighbor_left = NodePath("../../VBoxContainer/OptionB")
 focus_neighbor_top = NodePath("../OptionC")
+theme_override_font_sizes/font_size = 20
 text = "d"
 alignment = 0
+autowrap_mode = 2
 
 [node name="QuestionLabel" type="Label" parent="." unique_id=1699864311]
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(600, 50)
+custom_maximum_size = Vector2(600, -1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.22800002
 anchor_top = 0.397
 anchor_right = 0.22800002
 anchor_bottom = 0.397
-offset_left = -96.76004
-offset_top = -22.76001
-offset_right = 103.23996
-offset_bottom = 27.23999
+offset_left = -294.76004
+offset_top = -21.76001
+offset_right = 305.23996
+offset_bottom = 28.23999
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_position = Vector2(0, -100)
+theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_loflm")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="PlayerAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1762459651]
 position = Vector2(152, 920)
@@ -364,5 +412,25 @@ texture = ExtResource("10_u6exl")
 [node name="ShakeCamera2D" type="Camera2D" parent="." unique_id=1132796550]
 position = Vector2(960, 540)
 script = ExtResource("11_klscq")
+
+[node name="Curtains" parent="." unique_id=1568423794 instance=ExtResource("12_05l7r")]
+
+[node name="The end" type="Label" parent="." unique_id=1483056327]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -207.5
+offset_bottom = 207.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 150
+text = "The End
+Thank you for playing!"
+horizontal_alignment = 1
+
+[connection signal="focus_entered" from="Options" to="." method="_on_options_focus_entered"]
+[connection signal="mouse_entered" from="Options/VBoxContainer" to="." method="_on_v_box_container_mouse_entered"]
 
 [editable path="Control"]

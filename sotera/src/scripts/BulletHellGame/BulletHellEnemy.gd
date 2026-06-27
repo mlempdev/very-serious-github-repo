@@ -59,7 +59,7 @@ func _physics_process(delta: float) -> void:
 			
 			var currentAgentPosition: Vector2 = global_position
 			var nextPathPosition: Vector2 = navAgent.get_next_path_position()
-			velocity = currentAgentPosition.direction_to(nextPathPosition) * movementSpeed
+			navAgent.set_velocity( currentAgentPosition.direction_to(nextPathPosition) * movementSpeed)
 			melee.look_at(global_position+velocity)
 			movement_animation()
 			
@@ -132,3 +132,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		if parent is BulletHellBullet:
 			takeDamage(parent.damage)
 			parent.disable()
+
+
+func _on_navigation_velocity_computed(safe_velocity: Vector2) -> void:
+	velocity = safe_velocity

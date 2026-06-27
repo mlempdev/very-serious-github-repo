@@ -21,7 +21,7 @@ func _ready() -> void:
 	
 	contract_label.text = str(Globals.Total_contracts)
 
-	Events.collect_contract.connect(update_gui)
+	Events.on_minigame_end.connect(update_gui)
 	Events.lose_life.connect(update_gui)
 
 func update_gui() -> void:

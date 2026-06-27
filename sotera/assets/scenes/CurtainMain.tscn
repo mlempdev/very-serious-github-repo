@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://cf5vvcme34lkq" path="res://src/scripts/main/MainMenuPlayBtn.gd" id="7_eg6ox"]
 [ext_resource type="Script" uid="uid://d3uo8k80qvft6" path="res://src/scripts/main/MainMenuCreditsBtn.gd" id="7_genjg"]
 [ext_resource type="Script" uid="uid://dnwagqmfpnviu" path="res://src/systems/parallax/ParallaxSystem.gd" id="7_ghxc0"]
+[ext_resource type="Texture2D" uid="uid://cj36fdnn6kyka" path="res://assets/raw/cover main menu game over.png" id="7_t0oe3"]
 
 [node name="Root" type="Control" unique_id=868332111]
 layout_mode = 3
@@ -25,7 +26,7 @@ target_scene = "res://assets/scenes/FortuneWheelScene.tscn"
 [node name="Curtains" parent="." unique_id=1459606750 instance=ExtResource("2_k62dj")]
 metadata/_edit_lock_ = true
 
-[node name="Exit" type="ColorRect" parent="." unique_id=180414193 node_paths=PackedStringArray("crt", "pointer", "curtain_system", "jump_scare")]
+[node name="Exit" type="ColorRect" parent="." unique_id=180414193 node_paths=PackedStringArray("jump_scare", "crt", "pointer", "curtain_system")]
 layout_mode = 0
 offset_left = 890.0
 offset_top = 891.0
@@ -33,10 +34,10 @@ offset_right = 1000.0
 offset_bottom = 941.0
 color = Color(1, 1, 1, 0)
 script = ExtResource("4_ghxc0")
+jump_scare = NodePath("../JumpScare")
 crt = NodePath("../CRT")
 pointer = NodePath("../PointerTextArrow")
 curtain_system = NodePath("../Curtains")
-jump_scare = NodePath("../JumpScare")
 
 [node name="btn" type="Label" parent="Exit" unique_id=1545688145]
 layout_mode = 0
@@ -95,46 +96,19 @@ text = "Fol's"
 text_overrun_behavior = 1
 script = ExtResource("6_eg6ox")
 
-[node name="Welcome" type="ColorRect" parent="." unique_id=1097624220 node_paths=PackedStringArray("root", "crt", "pointer", "curtain_system", "jump_scare")]
-visible = false
+[node name="Play" type="ColorRect" parent="." unique_id=583450876 node_paths=PackedStringArray("root", "game_over_cover_texture", "crt", "pointer", "curtain_system")]
 layout_mode = 0
-offset_left = 744.0
-offset_top = 700.0
-offset_right = 1137.0
-offset_bottom = 770.0
+offset_left = 835.0
+offset_top = 708.0
+offset_right = 1040.0
+offset_bottom = 794.0
 color = Color(1, 1, 1, 0)
 script = ExtResource("7_eg6ox")
 root = NodePath("..")
+game_over_cover_texture = NodePath("GameOverCoverPlay")
 crt = NodePath("../CRT")
 pointer = NodePath("../PointerTextArrow")
 curtain_system = NodePath("../Curtains")
-jump_scare = NodePath("../JumpScare")
-
-[node name="btn" type="Label" parent="Welcome" unique_id=552926754]
-layout_mode = 0
-offset_right = 393.0
-offset_bottom = 97.0
-theme_override_colors/font_color = Color(0.78039217, 0.5647059, 0.5647059, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 94
-text = "WELCOME"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Play" type="ColorRect" parent="." unique_id=583450876 node_paths=PackedStringArray("root", "crt", "pointer", "curtain_system", "jump_scare")]
-layout_mode = 0
-offset_left = 843.0
-offset_top = 709.0
-offset_right = 1048.0
-offset_bottom = 785.0
-color = Color(1, 1, 1, 0)
-script = ExtResource("7_eg6ox")
-root = NodePath("..")
-crt = NodePath("../CRT")
-pointer = NodePath("../PointerTextArrow")
-curtain_system = NodePath("../Curtains")
-jump_scare = NodePath("../JumpScare")
 
 [node name="btn" type="Label" parent="Play" unique_id=307886478]
 layout_mode = 0
@@ -148,7 +122,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Credits" type="ColorRect" parent="." unique_id=1656730617 node_paths=PackedStringArray("crt", "pointer", "curtain_system", "jump_scare")]
+[node name="GameOverCoverPlay" type="TextureRect" parent="Play" unique_id=770728948]
+modulate = Color(0.78039217, 0.5647059, 0.5647059, 1)
+layout_mode = 0
+offset_left = -22.0
+offset_top = -11.0
+offset_right = 105.0
+offset_bottom = 29.0
+scale = Vector2(2, 2.426)
+texture = ExtResource("7_t0oe3")
+
+[node name="Credits" type="ColorRect" parent="." unique_id=1656730617 node_paths=PackedStringArray("crt", "pointer", "curtain_system")]
 layout_mode = 0
 offset_left = 855.0
 offset_top = 818.0
@@ -160,7 +144,6 @@ credits_scene = "res://assets/scenes/Credits.tscn"
 crt = NodePath("../CRT")
 pointer = NodePath("../PointerTextArrow")
 curtain_system = NodePath("../Curtains")
-jump_scare = NodePath("../JumpScare")
 
 [node name="btn" type="Label" parent="Credits" unique_id=768896354]
 layout_mode = 0

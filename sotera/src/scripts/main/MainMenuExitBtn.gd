@@ -1,7 +1,7 @@
 extends MainMenuBtn
-
 class_name MainMenuExitBtn
 
+@export var jump_scare: JumpScareController
 @onready var crossed_texture: TextureRect = $"Exit Blocker"
 var do_jumpscare_on_first_click: bool = true
 

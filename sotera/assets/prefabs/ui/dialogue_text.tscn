@@ -1,27 +1,46 @@
 [gd_scene format=3 uid="uid://bl5kwk28ennhq"]
 
 [ext_resource type="Script" uid="uid://c11j0audqunbq" path="res://assets/prefabs/ui/dialogue_text.gd" id="1_h8vih"]
+[ext_resource type="Script" uid="uid://6gbrgksowim7" path="res://src/scripts/main/MenuLabelMotionControl.gd" id="2_1x1lx"]
 
-[node name="DialogueText" type="Control" unique_id=998366939]
+[node name="DialogueText" type="Control" unique_id=516146425]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_h8vih")
-
-[node name="Label" type="Label" parent="." unique_id=1094755313]
-layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -45.0
+offset_top = -130.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "we have to fix fortune wheel scene,
-we have to fix fortune wheel scene
-"
+script = ExtResource("1_h8vih")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=109430812]
+layout_mode = 0
+offset_top = -31.0
+offset_right = 1915.0
+offset_bottom = 133.0
+color = Color(1, 1, 1, 0.57254905)
+
+[node name="Skip" type="Label" parent="." unique_id=1053932891]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 32.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.9433499, 0.51848584, 0.60044646, 1)
+theme_override_font_sizes/font_size = 30
+text = "<space skip>"
 horizontal_alignment = 1
+script = ExtResource("2_1x1lx")
+
+[node name="Label" type="Label" parent="." unique_id=1094755313]
+layout_mode = 0
+offset_top = 36.0
+offset_right = 1920.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "we have to fix fortune wheel scene"
+horizontal_alignment = 1
+script = ExtResource("2_1x1lx")

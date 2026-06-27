@@ -14,7 +14,6 @@ var time: float
 
 # --------------- Used to move curtaints a little on hover ---------------------
 @export var curtain_system: CurtainSystem
-@export var jump_scare: JumpScareController
 # --------------- Used to move curtaints a little on hover ---------------------
 
 var pressed: bool = false # self tracking state

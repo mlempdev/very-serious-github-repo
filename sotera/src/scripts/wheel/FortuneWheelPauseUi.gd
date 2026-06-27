@@ -12,11 +12,9 @@ enum PauseBoxState{ HIDDEN, APPEARING, SHOWN, DISAPPEARING }
 var _state: PauseBoxState = PauseBoxState.HIDDEN
 var _time: float = 0.0
 var _max_time: float
+var _minigame_pause_visual_block: bool = false # reset to fasle after scene reload
 
 func _ready() -> void:
-	curtains.on_close.connect(show_pause)
-	curtains.on_opening.connect(hide_pause)
-	
 	# auto hide ... enabled here cause Editor visibility
 	pause.modulate.a = 0.0
 	space_return.modulate.a = 0.0
@@ -49,7 +47,8 @@ func _update_visibility() -> void:
 	space_return.modulate.a = opacity
 	
 func show_pause() -> void:
-	var skip: bool = _state == PauseBoxState.APPEARING || _state == PauseBoxState.SHOWN
+	var skip: bool = _state == PauseBoxState.APPEARING || _state == PauseBoxState.SHOWN ||  \
+					 _minigame_pause_visual_block # closing curtains to minigame blocks show this
 	if skip: return
 	
 	_time = 0.0
@@ -71,4 +70,7 @@ func hide_pause() -> void:
 	if skip: return
 	
 	_state = PauseBoxState.DISAPPEARING
-	
+
+# signal linked method
+func minigame_block_pause_visual() -> void:
+	_minigame_pause_visual_block = true

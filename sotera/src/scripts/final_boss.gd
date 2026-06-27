@@ -27,15 +27,22 @@ func _ready() -> void:
 	if num_of_questions == 0:
 		return
 	questions.shuffle()
-
+	
+	$Curtains.open_full()
+	$Curtains.hide()
+	$"The end".hide()
+	
 	option_a.grab_focus()
-	option_a.pressed.connect(_on_option_button_pressed.bind(Answers.A))
-	option_b.pressed.connect(_on_option_button_pressed.bind(Answers.B))
-	option_c.pressed.connect(_on_option_button_pressed.bind(Answers.C))
-	option_d.pressed.connect(_on_option_button_pressed.bind(Answers.D))
+	var buttons = [option_a, option_b, option_c, option_d]
+	for button in buttons:
+		button.pressed.connect(_on_option_button_pressed.bind(buttons.find(button)))
+		button.focus_entered.connect(func(): SoundPool.play_random_sound(SoundPool.UI_SELECT_BOSS))
+		button.mouse_entered.connect(func(): SoundPool.play_random_sound(SoundPool.UI_SELECT_BOSS))
 
 	display_question()
 	set_health_bars()
+	
+	MusicPlayer.play_track(MusicPlayer.FINAL_BATTLE, 0.0, 0.0, -5.0)
 
 
 func set_health_bars() -> void:
@@ -52,6 +59,7 @@ func _on_option_button_pressed(answer: Answers) -> void:
 		on_wrong_question()
 	
 	move_to_next_question()
+	SoundPool.play_random_sound(SoundPool.UI_CLICK)
 
 
 func display_question() -> void:
@@ -65,27 +73,44 @@ func display_question() -> void:
 
 func move_to_next_question() -> void:
 	if question_index >= num_of_questions -1:
+		# Wuestions loop when they run out
+		questions.shuffle()
+		question_index = 0
+		display_question()
 		return
+		
 	question_index += 1
 	display_question()
+	#SoundPool.play_sound(SoundPool.UI_SOMETHING...?)
 
 func on_right_answer() -> void:
 	boss_health -= player_damage
 	boss_health_bar.value = boss_health
 	boss_flash_component._flash()
+	SoundPool.play_sound(SoundPool.UI_CORRECT)
+	
 	if boss_health <= 0:
 		on_boss_death()
+		#SoundPool.play_sound(SoundPool.BOSS_DEATH)
 
 func on_wrong_question() -> void:
 	Events.lose_life.emit()
 	player_flash_component._flash()
 	shake_camera_2d.add_trauma(randf_range(0.3, 0.5))
+	SoundPool.play_sound(SoundPool.UI_WRONG)
 
 	if Globals.Lives <= 0:
 		on_player_death()
 
 func on_boss_death() -> void:
-	pass
+	MusicPlayer.stop_track(1.0)
+	SoundPool.play_sound(SoundPool.BOSS_DEATH)
+	$Curtains.show()
+	$Curtains.close_full()
+	
+	await $Curtains.on_close
+	$"The end".show()
 
 func on_player_death() -> void:
 	Events.game_over.emit()
+	SoundPool.play_sound(SoundPool.MINIGAME_FAIL)

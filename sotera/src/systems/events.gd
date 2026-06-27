@@ -8,18 +8,18 @@ signal game_over
 signal play_loading_screen
 signal stop_loading_screen
 
-signal collect_contract
+signal on_minigame_end # old: collect_contract
 signal lose_life
 
-var scene_is_loading = false
+var scene_is_loading: bool = false
 
 var spinner_starting_positions = [
 	0.09814815386375, # Standard maze
 	0.49814815386375, # Scary maze
 	0.29814815386375, # Bullet hell
 ]
-var spinner_starting_position_idx = 0;
-var target_scene = ""
+var spinner_starting_position_idx: int = 0;
+var target_scene: String = ""
 
 var minigame_history = []
 
