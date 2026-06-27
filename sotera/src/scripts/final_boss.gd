@@ -107,6 +107,8 @@ func on_boss_death() -> void:
 	SoundPool.play_sound(SoundPool.BOSS_DEATH)
 	$Curtains.show()
 	$Curtains.close_full()
+	
+	await $Curtains.on_close
 	$"The end".show()
 
 func on_player_death() -> void:
